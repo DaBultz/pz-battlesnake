@@ -18,8 +18,9 @@ A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Enviorment for t
 ## Project Organization
 
 ```
-├── battlesnake         <-- GO Code
-└── pz-battlesnake      <-- PettingZoo Enviorment
+├── battlesnake         <-- Go Code
+├── example             <-- Example of how to use the enviorment
+└── pz_battlesnake      <-- PettingZoo enviorment
 ```
 
 ## Developer Install

@@ -1,7 +1,7 @@
 # PZ-BattleSnake
 
 
-A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Enviorment for the game [BattleSnake]([https://](https://play.battlesnake.com/))
+A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Enviorment for the game [BattleSnake](https://play.battlesnake.com/))
 
 ## Enviorments
 

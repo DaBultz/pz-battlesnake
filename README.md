@@ -29,5 +29,5 @@ A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Enviorment for t
 
 ## Useful links:
 
-- [PettingZoo]([https://](https://github.com/Farama-Foundation/PettingZoo))
+- [PettingZoo](https://github.com/Farama-Foundation/PettingZoo)
 - [BattleSnake Rules](https://github.com/BattlesnakeOfficial/rules/)

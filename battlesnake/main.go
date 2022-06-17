@@ -2,11 +2,9 @@ package main
 
 import (
 	"C"
+	"encoding/json"
 	"fmt"
 	"math/rand"
-)
-import (
-	"encoding/json"
 
 	"github.com/BattlesnakeOfficial/rules/client"
 )
@@ -27,7 +25,7 @@ func setup() {
 	state.Width = 11
 	state.Height = 11
 	// Set a Default snake
-	state.Names = append(state.Names, "agent_1")
+	state.Names = append(state.Names, "agent_0")
 
 	// Initialize the game state
 	state.initialize()

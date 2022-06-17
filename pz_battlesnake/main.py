@@ -1,15 +1,12 @@
-import ctypes
-import json
+from typing import List
+from gym.spaces import Dict, MultiDiscrete
+import numpy as np
 
-battlesnake = ctypes.CDLL("./battlesnake.so")
+ob = Dict(
+    {
+        "body": MultiDiscrete(np.repeat([[10, 10]], 10, axis=0)),
+        "head": MultiDiscrete([6, 6]),
+    }
+)
 
-# fromJSON
-from_json = battlesnake.fromJSON
-from_json.argtypes = [ctypes.c_char_p]
-
-doc = {
-    "width": 20,
-    "height": 20,
-}
-
-from_json(json.dumps(doc).encode("utf-8"))
+print(ob.sample())

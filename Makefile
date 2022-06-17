@@ -3,10 +3,16 @@ compile:
 	cd ./battlesnake && go build -o ../battlesnake.so -buildmode=c-shared .
 
 clean:
-	rm -f battlesnake.so
-	rm -f battlesnake.h
+	rm -rf ./battlesnake.h
+	rm -rf ./battlesnake.so
+
 
 run:
 	make compile
 	@echo ""
-	poetry run python ./pz-battlesnake/main.py
+	poetry run python ./pz_battlesnake/main.py
+
+example:
+	make compile
+	@echo ""
+	poetry run python ./example/main.py

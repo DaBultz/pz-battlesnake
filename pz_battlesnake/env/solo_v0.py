@@ -1,18 +1,28 @@
 import functools
 from gym import spaces
 from pettingzoo import ParallelEnv
-from pettingzoo.utils import parallel_to_aec, wrappers
+from pettingzoo.utils import wrappers, parallel_to_aec
+from pz_battlesnake.spaces.move import Move
+from pz_battlesnake.wrapper import env_reset, env_setup, env_step
 
 
 def env():
-    env = parallel_env()
+    env = raw_env()
     # This wrapper is only for environments which print results to the terminal
     env = wrappers.CaptureStdoutWrapper(env)
-    # this wrapper helps error handling for discrete action spaces
-    env = wrappers.AssertOutOfBoundsWrapper(env)
     # Provides a wide vareity of helpful user errors
     # Strongly recommended
     env = wrappers.OrderEnforcingWrapper(env)
+    return env
+
+
+def raw_env():
+    """
+    To support the AEC API, the raw_env() function just uses the from_parallel
+    function to convert from a ParallelEnv to an AEC env
+    """
+    env = parallel_env()
+    env = parallel_to_aec(env)
     return env
 
 
@@ -23,10 +33,14 @@ class parallel_env(ParallelEnv):
     }
 
     def __init__(self):
-        self.possible_agents = ["player_" + str(i) for i in range(1)]
+        self.possible_agents = ["agent_" + str(i) for i in range(1)]
         self.agent_name_mapping = dict(
             zip(self.possible_agents, list(range(len(self.possible_agents))))
         )
+
+        self.agent_selection = self.possible_agents[0]
+
+        env_setup()
 
     # this cache ensures that same space object is returned for the same agent
     # allows action space seeding to work as expected
@@ -43,8 +57,8 @@ class parallel_env(ParallelEnv):
         )
 
         # Not implemented yet
-        assert False, "observation_space() is not implemented yet"
-        return spaces.Discrete(4)
+        # assert False, "observation_space() is not implemented yet"
+        return spaces.Dict()
 
     @functools.lru_cache(maxsize=0)
     def action_space(self, agent=None):
@@ -57,7 +71,8 @@ class parallel_env(ParallelEnv):
             self.possible_agents
         )
 
-        return spaces.Discrete(4)
+        # assert False, "observation_space() is not implemented yet"
+        return Move()
 
     def render(self, mode="none"):
         """
@@ -81,15 +96,31 @@ class parallel_env(ParallelEnv):
 
         Returns the observations for each agent
         """
+        self.agents = self.possible_agents[:]
+        env_reset()
         pass
 
-    def step(self, actions):
+    def step(self, action):
         """
         step(action) takes in an action for each agent and should return the
             - observations
             - rewards
             - dones
             - infos
-        dicts where each dict looks like {agent_1: item_1, agent_2: item_2}
+        dicts where each dict looks like {agent_0: item_1, agent_1: item_2}
         """
-        pass
+        if not action:
+            self.agents = []
+            return {}
+
+        obs, reward, done, info = env_step(action)
+
+        observations = {"agent_0": obs}
+        rewards = {"agent_0": reward}
+        dones = {"agent_0": done}
+        infos = {"agent_0": info}
+
+        if done:
+            self.agents = []
+
+        return observations, rewards, dones, infos

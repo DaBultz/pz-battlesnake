@@ -6,10 +6,10 @@ A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Environment for 
 
 - [X] Solo
 - [X] Standard
-- [ ] Duels
+- [X] Duels
 - [ ] Wrapped
 - [ ] Constrictor
-- [ ] Arcade Maze (Used in Summer 2022 League)
+- [X] Arcade Maze (Used in Summer 2022 League)
 
 ## TO-DO:
 

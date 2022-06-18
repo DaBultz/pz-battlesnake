@@ -4,7 +4,6 @@ from pz_battlesnake.wrapper import env_done
 
 env = standard_v0.env(num_agents=2)
 
-
 for _ in range(100):
     env.reset()
     done = False

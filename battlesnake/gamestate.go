@@ -298,7 +298,26 @@ func (state *GameState) getResponseForSnake(snake SnakeState) StepRes {
 }
 
 func (state *GameState) getRewardForSnake(snakeState SnakeState) int {
-	return 0
+	// Find Snake index
+	var youSnake rules.Snake
+
+	for _, snake := range state.boardState.Snakes {
+		if snake.ID == snakeState.ID {
+			youSnake = snake
+			break
+		}
+	}
+
+	// Game is in progress
+	if !state.gameOver {
+		return 0
+	}
+
+	if youSnake.EliminatedCause != rules.NotEliminated {
+		return -1
+	}
+
+	return 1
 }
 
 // Parses a color string like "#ef03d3" to rgb values from 0 to 255 or returns

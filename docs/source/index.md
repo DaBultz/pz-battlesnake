@@ -1,4 +1,4 @@
-# pz-battlesnake documentation
+# PettingZoo BattleSnake Documentation
 
 ## Prerequisites
 
@@ -13,4 +13,7 @@
 
 ### Manual Install 
 
+- Clone the repo to any location
+- cd into directory
+- Install using `pip install -e pz_battlesnake`
 

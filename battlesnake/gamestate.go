@@ -1,10 +1,14 @@
 package main
 
 import (
+	"bytes"
+	"fmt"
 	"log"
+	"strconv"
 	"time"
 
 	"github.com/BattlesnakeOfficial/rules"
+	"github.com/BattlesnakeOfficial/rules/cli/commands"
 	"github.com/BattlesnakeOfficial/rules/client"
 	"github.com/BattlesnakeOfficial/rules/maps"
 	"github.com/google/uuid"
@@ -69,7 +73,6 @@ func (state *GameState) buildSnakes() map[string]SnakeState {
 }
 
 // Build Board State
-// Build Board State
 func (state *GameState) buildBoardState() *rules.BoardState {
 	snakeIds := []string{}
 
@@ -123,6 +126,94 @@ func (state *GameState) createNextBoardState(boardState *rules.BoardState, moves
 	boardState.Turn += 1
 
 	return boardState
+}
+
+func (state *GameState) printMap(boardState *rules.BoardState, useColor bool) {
+	var o bytes.Buffer
+	o.WriteString(fmt.Sprintf("Ruleset: %s, Seed: %d, Turn: %v\n", state.options.GameType, state.options.Seed, boardState.Turn))
+	board := make([][]string, boardState.Width)
+
+	for i := range board {
+		board[i] = make([]string, boardState.Height)
+	}
+
+	// Add all empty spaces to the buffer
+	for y := int(0); y < boardState.Height; y++ {
+		for x := int(0); x < boardState.Width; x++ {
+			if useColor {
+				board[x][y] = commands.TERM_FG_LIGHTGRAY + "□"
+			} else {
+				board[x][y] = "◦"
+			}
+
+		}
+	}
+
+	// Add all hazard to the buffer
+	for _, oob := range boardState.Hazards {
+		if useColor {
+			board[oob.X][oob.Y] = commands.TERM_BG_GRAY + " " + commands.TERM_BG_WHITE
+		} else {
+			board[oob.X][oob.Y] = "░"
+		}
+
+	}
+
+	if useColor {
+		o.WriteString(fmt.Sprintf("Hazards "+commands.TERM_BG_GRAY+" "+commands.TERM_RESET+": %v\n", boardState.Hazards))
+	} else {
+		o.WriteString(fmt.Sprintf("Hazards ░: %v\n", boardState.Hazards))
+	}
+
+	// Add all food to the buffer
+	for _, f := range boardState.Food {
+		if useColor {
+			board[f.X][f.Y] = commands.TERM_FG_FOOD + "●"
+		} else {
+			board[f.X][f.Y] = "⚕"
+		}
+	}
+
+	if useColor {
+		o.WriteString(fmt.Sprintf("Food "+commands.TERM_FG_FOOD+commands.TERM_BG_WHITE+"●"+commands.TERM_RESET+": %v\n", boardState.Food))
+	} else {
+		o.WriteString(fmt.Sprintf("Food ⚕: %v\n", boardState.Food))
+	}
+
+	// Add all snakes to the buffer
+	for _, s := range boardState.Snakes {
+		red, green, blue := parseSnakeColor(state.snakeStates[s.ID].Color)
+		for _, b := range s.Body {
+			if b.X >= 0 && b.X < boardState.Width && b.Y >= 0 && b.Y < boardState.Height {
+				if useColor {
+					board[b.X][b.Y] = fmt.Sprintf(commands.TERM_FG_RGB+"■", red, green, blue)
+				} else {
+					board[b.X][b.Y] = string(state.snakeStates[s.ID].Character)
+				}
+			}
+		}
+		if useColor {
+			o.WriteString(fmt.Sprintf("%v "+commands.TERM_FG_RGB+commands.TERM_BG_WHITE+"■■■"+commands.TERM_RESET+": %v\n", state.snakeStates[s.ID].Name, red, green, blue, s))
+		} else {
+			o.WriteString(fmt.Sprintf("%v %c: %v\n", state.snakeStates[s.ID].Name, state.snakeStates[s.ID].Character, s))
+		}
+	}
+
+	// Add border to the buffer
+	for y := boardState.Height - 1; y >= 0; y-- {
+		if useColor {
+			o.WriteString(commands.TERM_BG_WHITE)
+		}
+		for x := int(0); x < boardState.Width; x++ {
+			o.WriteString(board[x][y])
+		}
+		if useColor {
+			o.WriteString(commands.TERM_RESET)
+		}
+		o.WriteString("\n")
+	}
+
+	log.Print(o.String())
 }
 
 func (state *GameState) getRequestBodyForSnake(boardState *rules.BoardState, snakeState SnakeState) client.SnakeRequest {
@@ -202,4 +293,19 @@ func (state *GameState) getResponseForSnake(snake SnakeState) StepRes {
 		Info:        nil,
 		Observation: state.getRequestBodyForSnake(state.boardState, snake),
 	}
+}
+
+// Parses a color string like "#ef03d3" to rgb values from 0 to 255 or returns
+// the default gray if any errors occure
+func parseSnakeColor(color string) (int64, int64, int64) {
+	if len(color) == 7 {
+		red, err_r := strconv.ParseInt(color[1:3], 16, 64)
+		green, err_g := strconv.ParseInt(color[3:5], 16, 64)
+		blue, err_b := strconv.ParseInt(color[5:], 16, 64)
+		if err_r == nil && err_g == nil && err_b == nil {
+			return red, green, blue
+		}
+	}
+	// Default gray color from Battlesnake board
+	return 136, 136, 136
 }

@@ -11,12 +11,6 @@ import (
 
 //export setup
 func setup(settingsDoc *C.char) {
-	// This will reset the state if setup is called while a state exists
-	// TODO: Find a better way of resetting the enviorment (NEEDED FOR VECTORIZATION OF ENVIORMENT)
-	if game != nil {
-		game = nil
-	}
-
 	// Get the state
 	state := GetState()
 
@@ -34,6 +28,34 @@ func setup(settingsDoc *C.char) {
 
 	// Build Boardstate
 	state.boardState = state.buildBoardState()
+}
+
+//export reset
+func reset(settingsDoc *C.char) *C.char {
+	if game != nil {
+		game = nil
+	}
+
+	// Call setup
+	setup(settingsDoc)
+
+	// Get State
+	state := GetState()
+
+	// Construct the step response
+	response := map[string]StepRes{}
+
+	for _, snakeState := range state.snakeStates {
+		response[snakeState.ID] = state.getResponseForSnake(snakeState)
+	}
+
+	responseString, err := json.Marshal(response)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return C.CString(string(responseString))
 }
 
 //export isGameOver
@@ -77,6 +99,13 @@ func step(actions *C.char) *C.char {
 	}
 
 	return C.CString(string(responseString))
+}
+
+//export render
+func render(useColor C.int) {
+	state := GetState()
+
+	state.printMap(state.boardState, useColor == 1)
 }
 
 // empty main

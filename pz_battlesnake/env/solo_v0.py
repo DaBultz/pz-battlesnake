@@ -3,7 +3,7 @@ from gym import spaces
 from pettingzoo import ParallelEnv
 from pettingzoo.utils import wrappers, parallel_to_aec
 from pz_battlesnake.spaces.move import Move
-from pz_battlesnake.wrapper import env_reset, env_setup, env_step
+from pz_battlesnake.wrapper import env_done, env_render, env_reset, env_setup, env_step
 
 
 def env():
@@ -28,11 +28,15 @@ def raw_env():
 
 class parallel_env(ParallelEnv):
     metadata = {
-        "render_modes": ["none", "human"],
+        "render_modes": ["human", "human_color"],
         "name": "battlesnake-solo_v0",
     }
 
-    def __init__(self):
+    def __init__(
+        self,
+        width=11,
+        height=11,
+    ):
         self.possible_agents = ["agent_" + str(i) for i in range(1)]
         self.agent_name_mapping = dict(
             zip(self.possible_agents, list(range(len(self.possible_agents))))
@@ -40,7 +44,13 @@ class parallel_env(ParallelEnv):
 
         self.agent_selection = self.possible_agents[0]
 
-        env_setup()
+        self.options = {
+            "width": width,
+            "height": height,
+            "map": "standard",
+            "game_type": "solo",
+            "names": self.possible_agents,
+        }
 
     # this cache ensures that same space object is returned for the same agent
     # allows action space seeding to work as expected
@@ -79,7 +89,14 @@ class parallel_env(ParallelEnv):
         Renders the environment. In human mode, it can print to terminal, open
         up a graphical window, or open up some other display that a human can see and understand.
         """
-        pass
+        if mode == "none":
+            return
+
+        if mode == "human":
+            env_render(True)
+
+        if mode == "human_color":
+            env_render(True)
 
     def close(self):
         """
@@ -97,8 +114,11 @@ class parallel_env(ParallelEnv):
         Returns the observations for each agent
         """
         self.agents = self.possible_agents[:]
-        env_reset()
-        pass
+
+        if seed:
+            self.options["seed"] = seed
+
+        return env_reset(self.options)
 
     def step(self, action):
         """
@@ -113,14 +133,20 @@ class parallel_env(ParallelEnv):
             self.agents = []
             return {}
 
-        obs, reward, done, info = env_step(action)
+        agents = env_step(action)
 
-        observations = {"agent_0": obs}
-        rewards = {"agent_0": reward}
-        dones = {"agent_0": done}
-        infos = {"agent_0": info}
+        observations = {}
+        rewards = {}
+        dones = {}
+        infos = {}
 
-        if done:
+        for agent in agents:
+            observations[agent] = agents[agent]["observation"]
+            rewards[agent] = agents[agent]["reward"]
+            dones[agent] = agents[agent]["done"]
+            infos[agent] = agents[agent]["info"]
+
+        if env_done():
             self.agents = []
 
         return observations, rewards, dones, infos

@@ -16,11 +16,12 @@ This is a Proof-of-Concept (POC) and is likely not an efficient way of achieving
 
 ## TO-DO:
 
-- [ ] Render Board to CLI
-- [ ] Custom Width/Height
+- [X] Render Board to CLI
+- [X] Custom Width/Height
 - [ ] Compare [CTypes](https://docs.python.org/3/library/ctypes.html) to [CFFI](https://cffi.readthedocs.io/en/latest/) and [gRPC](https://grpc.io/)
 - [ ] Documentation
 - [ ] Make code [AGPL 3.0](https://choosealicense.com/licenses/agpl-3.0/) Compliant
+- [ ] Move Rendering Logic to Python (maybe)
  
 ## Installation
 
@@ -42,5 +43,6 @@ This is a Proof-of-Concept (POC) and is likely not an efficient way of achieving
 
 - [PettingZoo](https://github.com/Farama-Foundation/PettingZoo)
 - [BattleSnake Rules](https://github.com/BattlesnakeOfficial/rules/)
+- [Textualize](https://www.textualize.io/)
 
 ## Credits 

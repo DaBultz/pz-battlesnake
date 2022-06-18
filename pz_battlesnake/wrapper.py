@@ -1,7 +1,13 @@
 import ctypes
 import json
+import os
 
-battlesnake = ctypes.CDLL("./battlesnake.so")
+if os.name == "nt":
+    battlesnake = ctypes.CDLL("./bin/battlesnake.dll")
+elif os.name == "posix":
+    battlesnake = ctypes.CDLL("./bin/battlesnake.so")
+else:
+    raise Exception("Unsupported OS")
 
 # Setup
 _setup = battlesnake.setup

@@ -27,15 +27,16 @@ def raw_env():
 class parallel_env(ParallelEnv):
     metadata = {
         "render_modes": ["human", "human_color"],
-        "name": "battlesnake-solo_v0",
+        "name": "battlesnake-standard_v0",
     }
 
     def __init__(
         self,
         width=11,
         height=11,
+        num_agents=2,
     ):
-        self.possible_agents = ["agent_" + str(i) for i in range(1)]
+        self.possible_agents = ["agent_" + str(i) for i in range(num_agents)]
         self.agent_name_mapping = dict(
             zip(self.possible_agents, list(range(len(self.possible_agents))))
         )
@@ -46,7 +47,7 @@ class parallel_env(ParallelEnv):
             "width": width,
             "height": height,
             "map": "standard",
-            "game_type": "solo",
+            "game_type": "standard",
             "names": self.possible_agents,
         }
 

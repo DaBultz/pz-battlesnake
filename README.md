@@ -4,8 +4,8 @@ A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Environment for 
 
 ## Environments
 
-- [ ] Solo
-- [ ] Standard
+- [X] Solo
+- [X] Standard
 - [ ] Duels
 - [ ] Wrapped
 - [ ] Constrictor

@@ -19,9 +19,8 @@ This is a Proof-of-Concept (POC) and is likely not an efficient way of achieving
 - [ ] Render Board to CLI
 - [ ] Custom Width/Height
 - [ ] Compare [CTypes](https://docs.python.org/3/library/ctypes.html) to [CFFI](https://cffi.readthedocs.io/en/latest/) and [gRPC](https://grpc.io/)
-- [ ] Create an example using [Stable Baselines](https://stable-baselines.readthedocs.io/)
-- [ ] Custom String Space for action space
-
+- [ ] Documentation
+ 
 ## Installation
 
 **TODO**

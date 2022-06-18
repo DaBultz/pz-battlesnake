@@ -14,6 +14,11 @@ _step = battlesnake.step
 _step.argtypes = [ctypes.c_char_p]
 _step.restype = ctypes.c_char_p
 
+# observe
+_observe = battlesnake.observe
+_observe.argtypes = []
+_observe.restype = ctypes.c_char_p
+
 
 def env_step(actions):
     # Convert actions to string
@@ -27,3 +32,14 @@ def env_step(actions):
 
     # return result
     return res["observation"], res["reward"], res["done"], res["info"]
+
+
+def get_request():
+    # Call observe in go
+    res = _observe()
+
+    # convert result to python object
+    res = json.loads(res.decode("utf-8"))
+
+    # return result
+    return res

@@ -9,7 +9,7 @@ from pz_battlesnake.wrapper import env_reset, env_setup, env_step
 def env():
     env = raw_env()
     # This wrapper is only for environments which print results to the terminal
-    env = wrappers.CaptureStdoutWrapper(env)
+    # env = wrappers.CaptureStdoutWrapper(env)
     # Provides a wide vareity of helpful user errors
     # Strongly recommended
     env = wrappers.OrderEnforcingWrapper(env)

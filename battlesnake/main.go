@@ -88,5 +88,34 @@ func step(actions *C.char) *C.char {
 	return C.CString(string(responseString))
 }
 
+//export observe
+func observe() *C.char {
+	state := GetState()
+
+	// Check if the game is over advice to reset the environment
+	if state.gameOver {
+		fmt.Println("Game is over, please call reset()")
+		return C.CString("")
+	}
+
+	//
+	// Build the response
+	response := &StepRes{
+		Done:        state.gameOver,
+		Reward:      state.getRewardForSnake(),
+		Info:        nil,
+		Observation: state.getRequestBodyForSnake(state.boardState, state.snakeStates[state.Names[0]]),
+	}
+
+	// Convert the response to a json
+	responseString, err := json.Marshal(response.Observation)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return C.CString(string(responseString))
+}
+
 // empty main
 func main() {}

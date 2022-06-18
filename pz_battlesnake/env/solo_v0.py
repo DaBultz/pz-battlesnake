@@ -89,11 +89,8 @@ class parallel_env(ParallelEnv):
         Renders the environment. In human mode, it can print to terminal, open
         up a graphical window, or open up some other display that a human can see and understand.
         """
-        if mode == "none":
-            return
-
         if mode == "human":
-            env_render(True)
+            env_render(False)
 
         if mode == "human_color":
             env_render(True)

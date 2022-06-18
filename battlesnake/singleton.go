@@ -9,8 +9,3 @@ func GetState() *GameState {
 	}
 	return game
 }
-
-// Delete the singleton
-func resetSingleton() {
-	game = nil
-}

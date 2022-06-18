@@ -8,6 +8,7 @@ authors = ["Bultz <27208227+DaBultz@users.noreply.github.com>"]
 python = ">=3.10,<3.11"
 PettingZoo = "^1.18.1"
 Sphinx = "^5.0.2"
+furo = "^2022.6.4"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^22.3.0", allow-prereleases = true}

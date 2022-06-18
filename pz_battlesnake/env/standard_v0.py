@@ -1,7 +1,9 @@
 import functools
+from typing import List
 from gym import spaces
 from pettingzoo import ParallelEnv
 from pettingzoo.utils import wrappers, parallel_to_aec
+from pz_battlesnake.constants import DEFAULT_COLORS
 from pz_battlesnake.spaces.move import Move
 from pz_battlesnake.wrapper import env_done, env_render, env_reset, env_setup, env_step
 
@@ -35,6 +37,7 @@ class parallel_env(ParallelEnv):
         width=11,
         height=11,
         num_agents=4,
+        colors=DEFAULT_COLORS,
     ):
         self.possible_agents = ["agent_" + str(i) for i in range(num_agents)]
         self.agent_name_mapping = dict(
@@ -49,6 +52,7 @@ class parallel_env(ParallelEnv):
             "map": "standard",
             "game_type": "standard",
             "names": self.possible_agents,
+            "colors": colors,
         }
 
     # this cache ensures that same space object is returned for the same agent
@@ -127,7 +131,7 @@ class parallel_env(ParallelEnv):
         """
         if not action:
             self.agents = []
-            return {}
+            return {}, {}, {}, {}
 
         agents = env_step(action)
 

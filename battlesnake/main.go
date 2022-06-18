@@ -9,6 +9,8 @@ import (
 	"math/rand"
 )
 
+var game *GameState
+
 //export setup
 func setup(settingsDoc *C.char) {
 	// Get the state
@@ -110,3 +112,11 @@ func render(useColor C.int) {
 
 // empty main
 func main() {}
+
+// Get Singleton
+func GetState() *GameState {
+	if game == nil {
+		game = &GameState{}
+	}
+	return game
+}

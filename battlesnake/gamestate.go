@@ -64,7 +64,9 @@ func (state *GameState) buildSnakes() map[string]SnakeState {
 		name := state.options.Names[i]
 
 		snakes[name] = SnakeState{
-			Name: name, ID: name, LastMove: "up", Character: bodyChars[i%8],
+			Name: name, ID: name, LastMove: "up",
+			Character: bodyChars[i%8],
+			Color:     state.options.Colors[i%len(state.options.Colors)],
 		}
 
 	}
@@ -289,10 +291,14 @@ func convertRulesSnakes(snakes []rules.Snake, snakeStates map[string]SnakeState)
 func (state *GameState) getResponseForSnake(snake SnakeState) StepRes {
 	return StepRes{
 		Done:        state.gameOver,
-		Reward:      0,
+		Reward:      state.getRewardForSnake(snake),
 		Info:        nil,
 		Observation: state.getRequestBodyForSnake(state.boardState, snake),
 	}
+}
+
+func (state *GameState) getRewardForSnake(snakeState SnakeState) int {
+	return 0
 }
 
 // Parses a color string like "#ef03d3" to rgb values from 0 to 255 or returns

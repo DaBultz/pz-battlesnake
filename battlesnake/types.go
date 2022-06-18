@@ -30,6 +30,7 @@ type GameOptions struct {
 	GameType string   `json:"game_type"`
 	Seed     int64    `json:"seed"`
 	Names    []string `json:"names"`
+	Colors   []string `json:"colors"`
 }
 
 type GameState struct {

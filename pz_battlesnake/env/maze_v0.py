@@ -8,20 +8,20 @@ from pz_battlesnake.spaces.move import Move
 from pz_battlesnake.wrapper import env_done, env_render, env_reset, env_setup, env_step
 
 
-def env():
-    env = raw_env()
+def env(**kwargs):
+    env = raw_env(**kwargs)
     # Provides a wide vareity of helpful user errors
     # Strongly recommended
     env = wrappers.OrderEnforcingWrapper(env)
     return env
 
 
-def raw_env():
+def raw_env(**kwargs):
     """
     To support the AEC API, the raw_env() function just uses the from_parallel
     function to convert from a ParallelEnv to an AEC env
     """
-    env = parallel_env()
+    env = parallel_env(**kwargs)
     env = parallel_to_aec(env)
     return env
 
@@ -29,16 +29,15 @@ def raw_env():
 class parallel_env(ParallelEnv):
     metadata = {
         "render_modes": ["human", "human_color"],
-        "name": "battlesnake-solo_v0",
+        "name": "battlesnake-maze_v0",
     }
 
     def __init__(
         self,
-        width=11,
-        height=11,
+        num_agents=4,
         colors=DEFAULT_COLORS,
     ):
-        self.possible_agents = ["agent_" + str(i) for i in range(1)]
+        self.possible_agents = ["agent_" + str(i) for i in range(num_agents)]
         self.agent_name_mapping = dict(
             zip(self.possible_agents, list(range(len(self.possible_agents))))
         )
@@ -46,10 +45,10 @@ class parallel_env(ParallelEnv):
         self.agent_selection = self.possible_agents[0]
 
         self.options = {
-            "width": width,
-            "height": height,
-            "map": "standard",
-            "game_type": "solo",
+            "width": 21,
+            "height": 19,
+            "map": "arcade_maze",
+            "game_type": "wrapped",
             "names": self.possible_agents,
             "colors": colors,
         }

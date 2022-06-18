@@ -9,6 +9,7 @@ A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Environment for 
 - [ ] Duels
 - [ ] Wrapped
 - [ ] Constrictor
+- [ ] Arcade Maze (Used in Summer 2022 League)
 
 ## TO-DO:
 
@@ -19,6 +20,7 @@ A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Environment for 
 - [ ] Make code [AGPL 3.0](https://choosealicense.com/licenses/agpl-3.0/) Compliant
 - [ ] Move Rendering Logic to Python (maybe)
 - [ ] Add Support For MacOS (Unable to test)
+- [ ] Make custom BaseEnv
  
 ## Installation
 

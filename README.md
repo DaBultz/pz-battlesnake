@@ -20,6 +20,7 @@ This is a Proof-of-Concept (POC) and is likely not an efficient way of achieving
 - [ ] Custom Width/Height
 - [ ] Compare [CTypes](https://docs.python.org/3/library/ctypes.html) to [CFFI](https://cffi.readthedocs.io/en/latest/) and [gRPC](https://grpc.io/)
 - [ ] Documentation
+- [ ] Make code [AGPL 3.0](https://choosealicense.com/licenses/agpl-3.0/) Compliant
  
 ## Installation
 

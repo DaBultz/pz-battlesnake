@@ -31,7 +31,7 @@ func getKeys(jsonDocument map[string]interface{}) []string {
 }
 
 // This convers json to a map of SnakeMoves
-func toSnakeMoves(jsonDocument map[string]interface{}) []rules.SnakeMove {
+func parseSnakeMoves(jsonDocument map[string]interface{}) []rules.SnakeMove {
 	var snakeMoves []rules.SnakeMove
 
 	for _, key := range getKeys(jsonDocument) {
@@ -44,4 +44,18 @@ func toSnakeMoves(jsonDocument map[string]interface{}) []rules.SnakeMove {
 	}
 
 	return snakeMoves
+}
+
+func parseGameOptions(documentPtr *C.char) GameOptions {
+	documentStr := C.GoString(documentPtr)
+
+	var jsonDocument GameOptions
+
+	err := json.Unmarshal([]byte(documentStr), &jsonDocument)
+
+	if err != nil {
+		log.Fatalf("Error parsing JSON: %v", err)
+	}
+
+	return jsonDocument
 }

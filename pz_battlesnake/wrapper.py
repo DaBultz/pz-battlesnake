@@ -4,20 +4,29 @@ import json
 battlesnake = ctypes.CDLL("./battlesnake.so")
 
 # Setup
-env_setup = battlesnake.setup
-
-# Reset
-env_reset = battlesnake.reset
+_setup = battlesnake.setup
+_setup.argtypes = [ctypes.c_char_p]
 
 # step
 _step = battlesnake.step
 _step.argtypes = [ctypes.c_char_p]
 _step.restype = ctypes.c_char_p
 
-# observe
-_observe = battlesnake.observe
-_observe.argtypes = []
-_observe.restype = ctypes.c_char_p
+# isGameOver
+_done = battlesnake.isGameOver
+_done.restype = ctypes.c_int
+
+
+def env_done():
+    return _done() == 1
+
+
+def env_setup(options):
+    # Convert options to string
+    options = json.dumps(options).encode("utf-8")
+
+    # Call setup in go
+    _setup(options)
 
 
 def env_step(actions):
@@ -32,14 +41,3 @@ def env_step(actions):
 
     # return result
     return res["observation"], res["reward"], res["done"], res["info"]
-
-
-def get_request():
-    # Call observe in go
-    res = _observe()
-
-    # convert result to python object
-    res = json.loads(res.decode("utf-8"))
-
-    # return result
-    return res

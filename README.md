@@ -25,7 +25,9 @@ Documentation can be found here: [dabultz.github.io/pz-battlesnake/](https://dab
 - [ ] Make custom BaseEnv
 - [ ] Improve setup.py
 - [ ] Improve Release Workflow ([googleapis/release-please](https://github.com/googleapis/release-please))
-s
+- [ ] Setup Contributing 
+
+
 ## Project Organization
 
 ```

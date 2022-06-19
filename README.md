@@ -25,10 +25,6 @@ Documentation can be found here: [dabultz.github.io/pz-battlesnake/](https://dab
 - [ ] Make custom BaseEnv
 - [ ] Improve setup.py
  
-## Installation
-
-**TODO**
-
 ## Project Organization
 
 ```
@@ -36,10 +32,7 @@ Documentation can be found here: [dabultz.github.io/pz-battlesnake/](https://dab
 ├── example             <-- Example of how to use the enviorment
 └── pz_battlesnake      <-- PettingZoo enviorment
 ```
-
-## Developer Install
-
-**TODO**
+DO**
 
 ## Useful links:
 

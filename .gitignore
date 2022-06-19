@@ -169,3 +169,6 @@ bin/
 # vscode
 .vscode/
 *.code-workspace
+
+# build files
+**/build/*

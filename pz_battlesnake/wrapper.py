@@ -4,7 +4,7 @@ import os
 
 # Load the shared library from the proper path
 here = os.path.abspath(os.path.dirname(__file__))
-file = f"{here}/../battlesnake"
+file = f"{here}/../bin/battlesnake"
 
 if os.name == "nt":
     battlesnake = ctypes.CDLL(file)

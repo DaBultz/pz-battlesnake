@@ -23,7 +23,7 @@ class build_battlesnake(build_ext):
             raise CompileError("Failed to get dependencies")
 
         # Build go modules
-        ext_path = f"../{self.get_ext_fullpath(ext.name)}/../battlesnake"
+        ext_path = f"../{self.get_ext_fullpath(ext.name)}/../bin/battlesnake"
         cmd = ["go", "build", "-buildmode=c-shared", "-o", ext_path]
         cmd += ext.sources
 

@@ -42,5 +42,6 @@ DO**
 - [PettingZoo](https://github.com/Farama-Foundation/PettingZoo)
 - [BattleSnake Rules](https://github.com/BattlesnakeOfficial/rules/)
 - [Textualize](https://www.textualize.io/)
+- [Branch Naming]https://dev-tips.com/git/semantic-branch-names-and-commit-messages-in-git
 
 ## Credits

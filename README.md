@@ -2,6 +2,8 @@
 
 A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Environment for [BattleSnake](https://play.battlesnake.com/)
 
+Documentation can be found here: [dabultz.github.io/pz-battlesnake/](https://dabultz.github.io/pz-battlesnake/)
+
 ## Environments
 
 - [X] Solo

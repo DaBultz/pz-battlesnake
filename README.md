@@ -24,7 +24,8 @@ Documentation can be found here: [dabultz.github.io/pz-battlesnake/](https://dab
 - [ ] Add Support For MacOS (Unable to test)
 - [ ] Make custom BaseEnv
 - [ ] Improve setup.py
- 
+- [ ] Improve Release Workflow ([googleapis/release-please](https://github.com/googleapis/release-please))
+s
 ## Project Organization
 
 ```
@@ -40,4 +41,4 @@ DO**
 - [BattleSnake Rules](https://github.com/BattlesnakeOfficial/rules/)
 - [Textualize](https://www.textualize.io/)
 
-## Credits 
+## Credits

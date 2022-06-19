@@ -21,6 +21,7 @@ A [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) Environment for 
 - [ ] Move Rendering Logic to Python (maybe)
 - [ ] Add Support For MacOS (Unable to test)
 - [ ] Make custom BaseEnv
+- [ ] Improve setup.py
  
 ## Installation
 

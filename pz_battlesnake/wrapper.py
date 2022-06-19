@@ -2,10 +2,14 @@ import ctypes
 import json
 import os
 
+# Load the shared library from the proper path
+here = os.path.abspath(os.path.dirname(__file__))
+file = f"{here}/../battlesnake"
+
 if os.name == "nt":
-    battlesnake = ctypes.CDLL("./bin/battlesnake.dll")
+    battlesnake = ctypes.CDLL(file)
 elif os.name == "posix":
-    battlesnake = ctypes.CDLL("./bin/battlesnake.so")
+    battlesnake = ctypes.CDLL(file)
 else:
     raise Exception("Unsupported OS")
 

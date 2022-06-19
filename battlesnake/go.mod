@@ -2,11 +2,13 @@ module battlesnake
 
 go 1.18
 
-require github.com/BattlesnakeOfficial/rules v1.1.7
+require (
+	github.com/BattlesnakeOfficial/rules v1.1.7
+	github.com/google/uuid v1.1.2
+)
 
 require (
 	github.com/fsnotify/fsnotify v1.4.7 // indirect
-	github.com/google/uuid v1.1.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.1 // indirect

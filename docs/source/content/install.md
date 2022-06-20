@@ -2,6 +2,8 @@
 title: Installation
 ---
 
+# Installation
+
 ## Prerequisites
 
 Befoert you start, you need ensure that you have the following packages installed:

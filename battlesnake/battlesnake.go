@@ -44,6 +44,7 @@ type SnakeState struct {
 type GameState struct {
 	// Options
 	options GameOptions
+
 	// Internal State
 	settings    map[string]string
 	snakeStates map[string]SnakeState

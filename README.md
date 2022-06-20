@@ -25,7 +25,9 @@ Documentation can be found here: [dabultz.github.io/pz-battlesnake/](https://dab
 - [ ] Make custom BaseEnv
 - [ ] Improve setup.py
 - [ ] Improve Release Workflow ([googleapis/release-please](https://github.com/googleapis/release-please))
-s
+- [ ] Setup Contributing 
+
+
 ## Project Organization
 
 ```
@@ -40,5 +42,6 @@ DO**
 - [PettingZoo](https://github.com/Farama-Foundation/PettingZoo)
 - [BattleSnake Rules](https://github.com/BattlesnakeOfficial/rules/)
 - [Textualize](https://www.textualize.io/)
+- [Branch Naming]https://dev-tips.com/git/semantic-branch-names-and-commit-messages-in-git
 
 ## Credits

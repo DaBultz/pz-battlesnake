@@ -4,7 +4,7 @@ title: Maze (Summer League 2022)
 
 # Maze (Summer League 2022)
 
-## Enviorment Creation
+## Environment Creation
 
 ```python
 from pz_battlesnake.env import maze_v0

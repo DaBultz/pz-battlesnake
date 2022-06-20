@@ -6,7 +6,7 @@ title: Standard/Duel
 
 ## Enviorment Creation
 
-Standard Game of 4 Players:
+**Standard Game of 4 Players:**
 ```python
 from pz_battlesnake.env import standard_v0
 
@@ -19,7 +19,8 @@ for agent in env.agent_iter():
     env.step(action)
 
 ```
-Duel Game of 2 Players:
+
+**Duel Game of 2 Players:**
 ```python
 from pz_battlesnake.env import standard_v0
 

@@ -1,3 +1,20 @@
+/**
+  Copyright © 2022 Battlesnake Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 package main
 
 import (
@@ -14,24 +31,47 @@ import (
 	"github.com/google/uuid"
 )
 
+type SnakeState struct {
+	Name      string
+	ID        string
+	LastMove  string
+	Character rune
+	Color     string
+	Head      string
+	Tail      string
+}
+
+type GameState struct {
+	// Options
+	options GameOptions
+	// Internal State
+	settings    map[string]string
+	snakeStates map[string]SnakeState
+	gameID      string
+	ruleset     rules.Ruleset
+	gameMap     maps.GameMap
+	boardState  *rules.BoardState
+	gameOver    bool
+}
+
 // Initialize the game state
-func (state *GameState) initialize(options GameOptions) {
+func (gameState *GameState) initialize(options GameOptions) {
 	// Generate Game ID
-	state.gameID = uuid.New().String()
+	gameState.gameID = uuid.New().String()
 
 	// save the options to the state
-	state.options = options
+	gameState.options = options
 
 	// Load Game Map
-	gameMap, err := maps.GetMap(state.options.Map)
+	gameMap, err := maps.GetMap(gameState.options.Map)
 	if err != nil {
 		log.Fatalf("Error loading map: %v", err)
 	}
-	state.gameMap = gameMap
+	gameState.gameMap = gameMap
 
 	// Create settings Object
-	state.settings = map[string]string{
-		rules.ParamGameType:            state.options.GameType,
+	gameState.settings = map[string]string{
+		rules.ParamGameType:            gameState.options.GameType,
 		rules.ParamFoodSpawnChance:     "15",
 		rules.ParamMinimumFood:         "1",
 		rules.ParamHazardDamagePerTurn: "0",
@@ -39,34 +79,34 @@ func (state *GameState) initialize(options GameOptions) {
 	}
 
 	// generate seed if not set
-	if state.options.Seed == 0 {
-		state.options.Seed = int64(time.Now().UTC().UnixNano())
+	if gameState.options.Seed == 0 {
+		gameState.options.Seed = int64(time.Now().UTC().UnixNano())
 	}
 
 	// Build ruleset from settings
 	ruleset := rules.NewRulesetBuilder().
-		WithSeed(state.options.Seed).
-		WithParams(state.settings).
-		WithSolo(len(state.options.Names) == 1).Ruleset()
+		WithSeed(gameState.options.Seed).
+		WithParams(gameState.settings).
+		WithSolo(len(gameState.options.Names) == 1).Ruleset()
 
-	state.ruleset = ruleset
+	gameState.ruleset = ruleset
 
 	// Create snake states as empty
-	state.snakeStates = map[string]SnakeState{}
+	gameState.snakeStates = map[string]SnakeState{}
 }
 
 // Build Snake States
-func (state *GameState) buildSnakes() map[string]SnakeState {
+func (gameState *GameState) buildSnakes() map[string]SnakeState {
 	bodyChars := []rune{'■', '⌀', '●', '☻', '◘', '☺', '□', '⍟'}
 	snakes := map[string]SnakeState{}
 
-	for i := 0; i < len(state.options.Names); i++ {
-		name := state.options.Names[i]
+	for i := 0; i < len(gameState.options.Names); i++ {
+		name := gameState.options.Names[i]
 
 		snakes[name] = SnakeState{
 			Name: name, ID: name, LastMove: "up",
 			Character: bodyChars[i%8],
-			Color:     state.options.Colors[i%len(state.options.Colors)],
+			Color:     gameState.options.Colors[i%len(gameState.options.Colors)],
 		}
 
 	}
@@ -75,19 +115,19 @@ func (state *GameState) buildSnakes() map[string]SnakeState {
 }
 
 // Build Board State
-func (state *GameState) buildBoardState() *rules.BoardState {
+func (gameState *GameState) buildBoardState() *rules.BoardState {
 	snakeIds := []string{}
 
-	for _, snakeState := range state.snakeStates {
+	for _, snakeState := range gameState.snakeStates {
 		snakeIds = append(snakeIds, snakeState.ID)
 	}
 
 	// Setup Board
 	boardState, err := maps.SetupBoard(
-		state.gameMap.ID(),
-		state.ruleset.Settings(),
-		state.options.Height,
-		state.options.Width,
+		gameState.gameMap.ID(),
+		gameState.ruleset.Settings(),
+		gameState.options.Height,
+		gameState.options.Width,
 		snakeIds,
 	)
 
@@ -96,7 +136,7 @@ func (state *GameState) buildBoardState() *rules.BoardState {
 	}
 
 	// Modify Board State
-	boardState, err = state.ruleset.ModifyInitialBoardState(boardState)
+	boardState, err = gameState.ruleset.ModifyInitialBoardState(boardState)
 
 	if err != nil {
 		log.Fatalf("Error Modifying Board State: %v", err)
@@ -105,21 +145,21 @@ func (state *GameState) buildBoardState() *rules.BoardState {
 	return boardState
 }
 
-func (state *GameState) createNextBoardState(boardState *rules.BoardState, moves []rules.SnakeMove) *rules.BoardState {
+func (gameState *GameState) createNextBoardState(boardState *rules.BoardState, moves []rules.SnakeMove) *rules.BoardState {
 	// Loop over all snakes and set their last move to the new one
 	for _, move := range moves {
-		snakeState := state.snakeStates[move.ID]
+		snakeState := gameState.snakeStates[move.ID]
 		snakeState.LastMove = move.Move
-		state.snakeStates[move.ID] = snakeState
+		gameState.snakeStates[move.ID] = snakeState
 	}
 
-	boardState, err := state.ruleset.CreateNextBoardState(boardState, moves)
+	boardState, err := gameState.ruleset.CreateNextBoardState(boardState, moves)
 
 	if err != nil {
 		log.Fatalf("Error Creating Next Board State: %v", err)
 	}
 
-	boardState, err = maps.UpdateBoard(state.gameMap.ID(), boardState, state.ruleset.Settings())
+	boardState, err = maps.UpdateBoard(gameState.gameMap.ID(), boardState, gameState.ruleset.Settings())
 
 	if err != nil {
 		log.Fatalf("Error Updating Board State: %v", err)
@@ -130,9 +170,9 @@ func (state *GameState) createNextBoardState(boardState *rules.BoardState, moves
 	return boardState
 }
 
-func (state *GameState) printMap(boardState *rules.BoardState, useColor bool) {
+func (gameState *GameState) printMap(boardState *rules.BoardState, useColor bool) {
 	var o bytes.Buffer
-	o.WriteString(fmt.Sprintf("Ruleset: %s, Seed: %d, Turn: %v\n", state.options.GameType, state.options.Seed, boardState.Turn))
+	o.WriteString(fmt.Sprintf("Ruleset: %s, Seed: %d, Turn: %v\n", gameState.options.GameType, gameState.options.Seed, boardState.Turn))
 	board := make([][]string, boardState.Width)
 
 	for i := range board {
@@ -184,20 +224,20 @@ func (state *GameState) printMap(boardState *rules.BoardState, useColor bool) {
 
 	// Add all snakes to the buffer
 	for _, s := range boardState.Snakes {
-		red, green, blue := parseSnakeColor(state.snakeStates[s.ID].Color)
+		red, green, blue := parseSnakeColor(gameState.snakeStates[s.ID].Color)
 		for _, b := range s.Body {
 			if b.X >= 0 && b.X < boardState.Width && b.Y >= 0 && b.Y < boardState.Height {
 				if useColor {
 					board[b.X][b.Y] = fmt.Sprintf(commands.TERM_FG_RGB+"■", red, green, blue)
 				} else {
-					board[b.X][b.Y] = string(state.snakeStates[s.ID].Character)
+					board[b.X][b.Y] = string(gameState.snakeStates[s.ID].Character)
 				}
 			}
 		}
 		if useColor {
-			o.WriteString(fmt.Sprintf("%v "+commands.TERM_FG_RGB+commands.TERM_BG_WHITE+"■■■"+commands.TERM_RESET+": %v\n", state.snakeStates[s.ID].Name, red, green, blue, s))
+			o.WriteString(fmt.Sprintf("%v "+commands.TERM_FG_RGB+commands.TERM_BG_WHITE+"■■■"+commands.TERM_RESET+": %v\n", gameState.snakeStates[s.ID].Name, red, green, blue, s))
 		} else {
-			o.WriteString(fmt.Sprintf("%v %c: %v\n", state.snakeStates[s.ID].Name, state.snakeStates[s.ID].Character, s))
+			o.WriteString(fmt.Sprintf("%v %c: %v\n", gameState.snakeStates[s.ID].Name, gameState.snakeStates[s.ID].Character, s))
 		}
 	}
 
@@ -218,7 +258,7 @@ func (state *GameState) printMap(boardState *rules.BoardState, useColor bool) {
 	log.Print(o.String())
 }
 
-func (state *GameState) getRequestBodyForSnake(boardState *rules.BoardState, snakeState SnakeState) client.SnakeRequest {
+func (gameState *GameState) getRequestBodyForSnake(boardState *rules.BoardState, snakeState SnakeState) client.SnakeRequest {
 	var youSnake rules.Snake
 
 	// Find your snake
@@ -230,23 +270,23 @@ func (state *GameState) getRequestBodyForSnake(boardState *rules.BoardState, sna
 	}
 
 	return client.SnakeRequest{
-		Game:  state.createClientGame(),
+		Game:  gameState.createClientGame(),
 		Turn:  boardState.Turn,
-		Board: convertStateToBoard(state.boardState, state.snakeStates),
+		Board: convertStateToBoard(gameState.boardState, gameState.snakeStates),
 		You:   convertRulesSnake(youSnake, snakeState),
 	}
 }
 
-func (state *GameState) createClientGame() client.Game {
+func (gameState *GameState) createClientGame() client.Game {
 	return client.Game{
-		ID:      state.gameID,
+		ID:      gameState.gameID,
 		Timeout: 0,
 		Ruleset: client.Ruleset{
-			Name:     state.ruleset.Name(),
+			Name:     gameState.ruleset.Name(),
 			Version:  "cli",
-			Settings: state.ruleset.Settings(),
+			Settings: gameState.ruleset.Settings(),
 		},
-		Map: state.gameMap.ID(),
+		Map: gameState.gameMap.ID(),
 	}
 }
 
@@ -288,20 +328,11 @@ func convertRulesSnakes(snakes []rules.Snake, snakeStates map[string]SnakeState)
 	return a
 }
 
-func (state *GameState) getResponseForSnake(snake SnakeState) StepRes {
-	return StepRes{
-		Done:        state.gameOver,
-		Reward:      state.getRewardForSnake(snake),
-		Info:        nil,
-		Observation: state.getRequestBodyForSnake(state.boardState, snake),
-	}
-}
-
-func (state *GameState) getRewardForSnake(snakeState SnakeState) int {
+func (gameState *GameState) getRewardForSnake(snakeState SnakeState) int {
 	// Find Snake index
 	var youSnake rules.Snake
 
-	for _, snake := range state.boardState.Snakes {
+	for _, snake := range gameState.boardState.Snakes {
 		if snake.ID == snakeState.ID {
 			youSnake = snake
 			break
@@ -309,7 +340,7 @@ func (state *GameState) getRewardForSnake(snakeState SnakeState) int {
 	}
 
 	// Game is in progress
-	if !state.gameOver {
+	if !gameState.gameOver {
 		return 0
 	}
 
@@ -318,6 +349,15 @@ func (state *GameState) getRewardForSnake(snakeState SnakeState) int {
 	}
 
 	return 1
+}
+
+func (gameState *GameState) getResponseForSnake(snake SnakeState) StepRes {
+	return StepRes{
+		Done:        gameState.gameOver,
+		Reward:      gameState.getRewardForSnake(snake),
+		Info:        nil,
+		Observation: gameState.getRequestBodyForSnake(gameState.boardState, snake),
+	}
 }
 
 // Parses a color string like "#ef03d3" to rgb values from 0 to 255 or returns

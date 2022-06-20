@@ -8,7 +8,6 @@ This is a Multi-Agent Enviorment for [battlesnake](https://battlesnake.com/) uti
 :caption: User Guide
 
 content/install
-Github <https://github.com/openai/gym>
 ```
 
 ```{toctree}

@@ -32,16 +32,20 @@ Documentation can be found here: [dabultz.github.io/pz-battlesnake/](https://dab
 
 ```
 ├── battlesnake         <-- Go Code
+├── docs                <-- Documentation
+├── example             <-- Environments
 ├── example             <-- Example of how to use the enviorment
 └── pz_battlesnake      <-- PettingZoo enviorment
 ```
-DO**
+
 
 ## Useful links:
 
 - [PettingZoo](https://github.com/Farama-Foundation/PettingZoo)
 - [BattleSnake Rules](https://github.com/BattlesnakeOfficial/rules/)
 - [Textualize](https://www.textualize.io/)
-- [Branch Naming]https://dev-tips.com/git/semantic-branch-names-and-commit-messages-in-git
+- [Branch Naming](https://dev-tips.com/git/semantic-branch-names-and-commit-messages-in-git)
 
 ## Credits
+
+- [Battlesnake Inc.](https://play.battlesnake.com/) for making the game and [open sourcing the logic & rules](https://github.com/BattlesnakeOfficial/rules)

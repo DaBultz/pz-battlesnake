@@ -1,22 +1,24 @@
 # PettingZoo BattleSnake Documentation
 
-## Prerequisites
+This is a Multi-Agent Enviorment for [battlesnake](https://battlesnake.com/) utilizing the [PettingZoo](https://pettingzoo.com/) framework.
 
-- Go 1.18 (`go version`)
-- Python >= 3.10 (`python --version`)
+```
+:hidden:
+:caption: User Guide
 
-## Installation
+content/install
+Github <https://github.com/openai/gym>
+```
+```
+:hidden:
+:caption: Environments
 
-### PyPi Install
+environments/solo
+environments/standard
+environments/maze
+```
+:hidden:
+:caption: Development
 
-**WILL COME AT A LATER DATE**
-
-### Manual Install
-
-**Step 1:** Clone the repo by running `git clone git@github.com:DaBultz/pz-battlesnake.git`
-
-**Step 2:** CD into the repository `cd pz-battlesnake`
-
-**Step 3:** Install by running `python setup.py install --user`
-
-The package is now installed globaly
+Go to Github <https://github.com/DaBultz/pz-battlesnake>
+```

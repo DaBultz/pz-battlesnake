@@ -3,14 +3,15 @@
 This is a Multi-Agent Enviorment for [battlesnake](https://battlesnake.com/) utilizing the [PettingZoo](https://pettingzoo.com/) framework.
 
 
-```
+```{toctree}
 :hidden:
 :caption: User Guide
 
 content/install
 Github <https://github.com/openai/gym>
 ```
-```
+
+```{toctree}
 :hidden:
 :caption: Environments
 
@@ -18,6 +19,8 @@ environments/solo
 environments/standard
 environments/maze
 ```
+
+```{toctree}
 :hidden:
 :caption: Development
 

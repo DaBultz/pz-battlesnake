@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex/" /><link rel="search" title="Search" href="search/" />
+<link rel="index" title="Index" href="genindex/" /><link rel="search" title="Search" href="search/" /><link rel="next" title="Installation" href="content/install/" />
         <link rel="canonical" href="https://dabultz.github.io/pz-battlesnake/index.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.04.1"/>
@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -155,7 +155,22 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  
+  <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/install/">Installation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/openai/gym">Github</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Environments</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="environments/solo/">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments/standard/">Standard/Duel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments/maze/">Maze (Summer League 2022)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/DaBultz/pz-battlesnake">Go to Github</a></li>
+</ul>
+
 </div>
 </div>
 
@@ -181,7 +196,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -190,26 +205,11 @@
           <section id="pettingzoo-battlesnake-documentation">
 <h1>PettingZoo BattleSnake Documentation<a class="headerlink" href="#pettingzoo-battlesnake-documentation" title="Permalink to this heading">#</a></h1>
 <p>This is a Multi-Agent Enviorment for <a class="reference external" href="https://battlesnake.com/">battlesnake</a> utilizing the <a class="reference external" href="https://pettingzoo.com/">PettingZoo</a> framework.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">hidden</span><span class="p">:</span>
-<span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">User</span> <span class="n">Guide</span>
-
-<span class="n">content</span><span class="o">/</span><span class="n">install</span>
-<span class="n">Github</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">openai</span><span class="o">/</span><span class="n">gym</span><span class="o">&gt;</span>
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">hidden</span><span class="p">:</span>
-<span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Environments</span>
-
-<span class="n">environments</span><span class="o">/</span><span class="n">solo</span>
-<span class="n">environments</span><span class="o">/</span><span class="n">standard</span>
-<span class="n">environments</span><span class="o">/</span><span class="n">maze</span>
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
-<p>:hidden:
-:caption: Development</p>
-<p>Go to Github <a class="reference external" href="https://github.com/DaBultz/pz-battlesnake">https://github.com/DaBultz/pz-battlesnake</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -218,7 +218,15 @@
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="content/install/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Installation</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
           
         </div>
         <div class="bottom-of-page">
@@ -240,8 +248,26 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">PettingZoo BattleSnake Documentation</a><ul>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

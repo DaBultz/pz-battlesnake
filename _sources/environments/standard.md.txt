@@ -4,7 +4,7 @@ title: Standard/Duel
 
 # Standard/Duel
 
-## Enviorment Creation
+## Environment Creation
 
 **Standard Game of 4 Players:**
 ```python

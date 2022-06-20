@@ -4,7 +4,7 @@ title: Solo
 
 # Solo
 
-## Enviorment Creation
+## Environment Creation
 
 ```python
 from pz_battlesnake.env import solo_v0

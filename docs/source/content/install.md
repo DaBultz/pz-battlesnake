@@ -1,5 +1,10 @@
+---
+title: Installation
+---
+
 ## Prerequisites
 
+Befoert you start, you need ensure that you have the following packages installed:
 - Go 1.18 (`go version`)
 - Python >= 3.10 (`python --version`)
 

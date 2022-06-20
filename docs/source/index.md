@@ -2,6 +2,7 @@
 
 This is a Multi-Agent Enviorment for [battlesnake](https://battlesnake.com/) utilizing the [PettingZoo](https://pettingzoo.com/) framework.
 
+
 ```
 :hidden:
 :caption: User Guide

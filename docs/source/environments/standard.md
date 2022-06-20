@@ -49,7 +49,7 @@ The observation space matches the API request from battlesnake, you can find thi
 
 ## Action Space
 
-The Action space consists of a Move, which has 4 diffrent options:
+The Action space consists of a Move, which has 4 diffrent strings as options:
 - `up`
 - `down`
 - `left`

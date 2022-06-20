@@ -9,7 +9,7 @@ title: Maze (Summer League 2022)
 ```python
 from pz_battlesnake.env import maze_v0
 
-env = maze_v0.env(num_agents=2)
+env = maze_v0.env()
 
 env.reset()
 for agent in env.agent_iter():

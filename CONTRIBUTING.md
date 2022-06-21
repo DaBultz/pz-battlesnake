@@ -11,10 +11,6 @@
 - [How to contribute code](#how-to-contribute-code)
 - [How to contact](#how-to-contact)
 - [Style Guide](#style-guide)
-  - [Git](#git)
-    - [Commit Messages](#commit-messages)
-    - [Pull Requests](#pull-requests)
-    - [Branch Naming](#branch-naming)
 
 ## Introduction
 
@@ -48,6 +44,7 @@ This guide will help you get started to contribute to pz-battlesnake, it's recom
 
 Once you've read the project setup, you can setting up your project by following and doing what the steps tell you to do. 
 
+<!-- omit in toc -->
 ### Prerequisites
 
 Before starting to contribute, you need to have the following prerequisites:
@@ -56,6 +53,7 @@ Before starting to contribute, you need to have the following prerequisites:
 - Make
 - [poetry](https://python-poetry.org/docs/) - used to manage dependencies
 
+<!-- omit in toc -->
 ### Step 1: Clone the repository & get latest code
 
 [Fork](http://help.github.com/fork-a-repo/) the repo, clone your fork and setup remotes. if you are not sure if you should use HTTPS or SSH, pick HTTPS or setup your account to use SSH if you haven't already (see [guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh))
@@ -95,6 +93,7 @@ git checkout main
 git pull upstream main
 ```
 
+<!-- omit in toc -->
 ### Step 2: Install dependencies
 
 Start my making an virtualenv using poetry by executing the following command:
@@ -109,6 +108,7 @@ poetry install
 
 All dependencies are installed into the virtualenv
 
+<!-- omit in toc -->
 ### Step 3: Create a new branch
 
 We highly recommend that you create a new branch through the github UI, if you are not sure how to do this, please see [Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
@@ -119,6 +119,7 @@ git fetch
 git checkout <branch-name>
 ```
 
+<!-- omit in toc -->
 ### Step 4: Open a draft pull request
 
 If you haven't already, open a new pull request to this [repo](https://github.com/DaBultz/pz-battlesnake), make sure it's a draft. so it doesn't get merged by accident. This would also allow the maintainers to review your proposal before you start working on it
@@ -126,21 +127,17 @@ If you haven't already, open a new pull request to this [repo](https://github.co
 if you are not sure how to open a new pull request, please see [Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 
+<!-- omit in toc -->
 ### Step 5: Commit your changes
 
 Commits should be small in small amounts, please consult the commit messages guidelines for how to name your commit (see [commit messages](#commit-messages) under style guide)
 
-
+<!-- omit in toc -->
 ### Step 6: When you're done with your changes
 
 When you're done with your changes, you can remove the draft status of your pull request and let the maintainers know that your changes are ready for review.
 
 Merge conflicts might occur which you would need to solve, if you are not sure how to solve them, please see [Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)
-
-
-### Step 7: Your contribution is 
-
-Congratulations, you have successfully made a contribution to pz-battlesnake! 
 
 ## How to contribute documentation
 
@@ -201,6 +198,7 @@ if there's any questions, you can always get in contact with me through these ch
 
 ## Style Guide
 
+<!-- omit in toc -->
 ### Conventional Commit
 
 Conventional Commits set the following structure for the commit messages:
@@ -260,10 +258,12 @@ For more information please check out:
 - [Conventional Commits](https://conventionalcommits.org/en/v1.0.0/#specification)
 - [Angular Conventions](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular)
 
+<!-- omit in toc -->
 ### Commit Messages
 
 When doing any commit, please make sure they follow the [Conventional Commit](#conventional-commit) style style found under style guide..
 
+<!-- omit in toc -->
 ### Pull Requests
 
 Our pull requests follow the following structure:
@@ -271,6 +271,7 @@ Our pull requests follow the following structure:
 - The description, does not enforce any style. it's up to you what's relevant.
     - Make sure you provide as information as you can, but make sure it's clear and concise.
 
+<!-- omit in toc -->
 ### Branch Naming
 
 We do not enforce any branch naming conventions on forks, but we do recommend the following structure to make:

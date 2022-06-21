@@ -20,6 +20,7 @@
 
 Thank you so much for your interest in contributing!. All types of contributions are encouraged and valued. See the [table of contents](#toc) for different ways to help and details about how this project handles them!📝
 
+**Before you proceed, this document is if you wish to contribute by either either adding code or improving the documentation, for other things please go to the following places, please refer to [how to contact](#how-to-contact):**
 
 ## Getting Started
 
@@ -27,7 +28,7 @@ Contributions are made to this project via issues and Pull Requests (PRs), below
 
 - This repository follows the conventional commits standard (see [conventional commits](#conventional-commit) under style guide), we use this standard in the following places:
   - Commits, see [commit messages](#commit-messages) under style guide
-  - Pull Request (Only the title), see [pull requests](#pull-requests) under style guide
+  - Pull Request, see [pull requests](#pull-requests) under style guide
   - Branch names, see [branch names](#branch-naming) under style guide
 - Submit all changes directly to the `main` branch, there's no seperate `develop` or `release` branch
   - We will do our best to keep the `main` in a good and stable state
@@ -35,10 +36,11 @@ Contributions are made to this project via issues and Pull Requests (PRs), below
   - [How to contribute documentation](#how-to-contribute-documentation)
   - [How to contribute code](#how-to-contribute-code)
   - Anything else, please contact me (see [how to contact](#how-to-contact))
-- Please ask before embarking on a significant pull request (e.g new feature, refactoring code or otherwise massive changes), otherwise you risk spending a lot of time on something which might not get merged. 
+- Please ask before embarking on a significant pull request (e.g new feature, refactoring code or otherwise massive changes), otherwise you risk spending a lot of time on something which might not get merged. When you ask it's recommended you give as much context as possible
   - You can do this by contacting me (see [how to contact](#how-to-contact))
-  - Or, by opening a new PR before you start to work on it, see [pull requests](#pull-requests) under style guide
+  - Or, by opening a new PR (make sure you mark it as draft) before you start to work on it, see [pull requests](#pull-requests) under style guide
 - Changes might occur to this document, check for changes regularly
+
 
 ## Project Setup
 
@@ -107,16 +109,7 @@ poetry install
 
 All dependencies are installed into the virtualenv
 
-### Step 3: Setup Git Hooks 
-
-Setting up git hooks, would allow you to check if your commits, branch names follow the style guide, install these hooks by running the following command:
-```
-poetry run pre-commit install
-```
-
-some hit hooks are now installed which will run before you commit, they check if your commits follow the style guide (see [commit messages](#commit-messages) under style guide)
-
-### Step 4: Create a new branch
+### Step 3: Create a new branch
 
 We highly recommend that you create a new branch through the github UI, if you are not sure how to do this, please see [Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
 
@@ -126,26 +119,26 @@ git fetch
 git checkout <branch-name>
 ```
 
-### Step 5: Open a draft pull request
+### Step 4: Open a draft pull request
 
 If you haven't already, open a new pull request to this [repo](https://github.com/DaBultz/pz-battlesnake), make sure it's a draft. so it doesn't get merged by accident. This would also allow the maintainers to review your proposal before you start working on it
 
 if you are not sure how to open a new pull request, please see [Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 
-### Step 6: Commit your changes
+### Step 5: Commit your changes
 
 Commits should be small in small amounts, please consult the commit messages guidelines for how to name your commit (see [commit messages](#commit-messages) under style guide)
 
 
-### Step 7: When you're done with your changes
+### Step 6: When you're done with your changes
 
 When you're done with your changes, you can remove the draft status of your pull request and let the maintainers know that your changes are ready for review.
 
 Merge conflicts might occur which you would need to solve, if you are not sure how to solve them, please see [Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)
 
 
-### Step 8: Your contribution is 
+### Step 7: Your contribution is 
 
 Congratulations, you have successfully made a contribution to pz-battlesnake! 
 

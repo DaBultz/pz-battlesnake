@@ -23,7 +23,7 @@ The project will be expanded in stages,
 
 In the next stage, the are 2 focuses for the project
 
-**Focus 1: Environments
+**Focus 1: Environments**
 A base environment will be developed and all environments will inherit from this, there are minor changes between the environments. This would also included updates to the examples, so they are more accurate and up to date.
 
 **Focus 2: Documentation**

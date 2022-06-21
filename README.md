@@ -36,7 +36,7 @@ The documentation is really lacking, in this stage there will be a focus on the 
 ### Future Stages
 
 - Vectorization of the environments (allow multiple games run at the same time)
-
+- Tests, it would allow us to keeo a certain quality
 
 ## Project Organization
 

@@ -15,14 +15,25 @@ You are able to contribute to this project, read the [contributing guide](CONTRI
 - [ ] Constrictor
 - [X] Arcade Maze (Used in Summer 2022 League)
 
-## TO-DO:
+## Plans:
 
-- [ ] Compare [CTypes](https://docs.python.org/3/library/ctypes.html) to [CFFI](https://cffi.readthedocs.io/en/latest/) and [gRPC](https://grpc.io/)
-- [ ] Move Rendering Logic to Python (maybe)
-- [ ] Add Support For MacOS (Unable to test)
-- [ ] Make custom BaseEnv
-- [ ] Improve setup.py
-- [ ] Improve Release Workflow ([googleapis/release-please](https://github.com/googleapis/release-please))
+The project will be expanded in stages, 
+
+### Next Stage
+
+In the next stage, the are 2 focuses for the project
+
+**Focus 1: Environments
+A base environment will be developed and all environments will inherit from this, there are minor changes between the environments. This would also included updates to the examples, so they are more accurate and up to date.
+
+**Focus 2: Documentation**
+The documentation is really lacking, in this stage there will be a focus on the following
+- [ ] Documentation for the environments
+- [ ] General API Documentation
+
+### Future Stages
+
+- Vectorization of the environments (allow multiple games run at the same time)
 
 
 ## Project Organization
@@ -39,7 +50,6 @@ You are able to contribute to this project, read the [contributing guide](CONTRI
 
 - [PettingZoo](https://github.com/Farama-Foundation/PettingZoo)
 - [BattleSnake Rules](https://github.com/BattlesnakeOfficial/rules/)
-- [Textualize](https://www.textualize.io/)
 
 ## Credits
 

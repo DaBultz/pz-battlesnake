@@ -12,8 +12,6 @@ PettingZoo = "1.18.1"
 black = {version = "22.3.0", allow-prereleases = true}
 furo = "2022.6.4"
 Sphinx = "5.0.2"
-commitizen = "2.27.1"
-pre-commit = "2.19.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -52,7 +52,7 @@ setup(
             "_battlesnake",
             [
                 "main.go",
-                "gamestate.go",
+                "battlesnake.go",
                 "json.go",
                 "types.go",
             ],

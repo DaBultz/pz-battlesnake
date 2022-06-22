@@ -151,6 +151,7 @@ The list is not exhaustive, but it provides some ideas of what we would like to 
 To contribute documentation:
 
 - [Set up the project](#project-setup).
+- We use google docstring style for our code (we use this to autogenerate API Documentation), please see the style guide found [here](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html) 
 - Edit or add any relevant documentation.
 - Make sure your changes are formatted correctly and consistently with the rest of the documentation.
 - Re-read what you wrote, and run a spellchecker on it to make sure you didn't miss anything.
@@ -172,9 +173,9 @@ Code is a key part of this project, contribution of any size is welcome and enco
 
 To contribute code:
 
-* [Set up the project](#project-setup).
-* Make any necessary changes to the source code.
-* Include any [additional documentation](#contribute-documentation) the changes might need.
+- [Set up the project](#project-setup).
+- Make any necessary changes to the source code.
+- Include any [additional documentation](#contribute-documentation) the changes might need.
 - Write clear, concise commit message(s) (see [commit messages](#commit-messages) style found under style guide).
 - Dependency updates, additions, or removals must be in individual commits, and most follow this format: `<prefix>(deps): PKG@VERSION`, where `<prefix>` is a one of the available prefixes (see [commit messages](#commit-messages) style found under style guide).
 - Go to https://github.com/DaBultz/pz-battlesnake/pulls and open a new pull request with your changes (if you made a draft pull request, remove the draft status).

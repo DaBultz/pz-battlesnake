@@ -9,3 +9,6 @@ run:
 	make compile
 	@echo ""
 	poetry run python ./pz_battlesnake/main.py
+
+build-docs:
+	@sphinx-build -b dirhtml -v docs/source build

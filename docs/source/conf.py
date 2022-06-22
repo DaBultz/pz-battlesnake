@@ -45,6 +45,10 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Napoleon settings
+napoleon_use_ivar = True
+# See https://github.com/sphinx-doc/sphinx/issues/9119
+napoleon_custom_sections = [("Returns", "params_style")]
 
 # -- Options for HTML output -------------------------------------------------
 

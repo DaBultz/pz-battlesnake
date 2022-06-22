@@ -12,6 +12,13 @@ content/install
 
 ```{toctree}
 :hidden:
+:caption: API
+
+api/base_env
+```
+
+```{toctree}
+:hidden:
 :caption: Environments
 
 environments/solo

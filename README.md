@@ -1,4 +1,6 @@
 # PZ-BattleSnake
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FDaBultz%2Fpz-battlesnake.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FDaBultz%2Fpz-battlesnake?ref=badge_shield)
+
 
 PettingZoo/Gym Multi-Agent Environment For [BattleSnake](https://play.battlesnake.com/)
 
@@ -56,3 +58,7 @@ The documentation is really lacking, in this stage there will be a focus on the 
 ## Credits
 
 - [Battlesnake Inc.](https://play.battlesnake.com/) for making the game and [open sourcing the logic & rules](https://github.com/BattlesnakeOfficial/rules)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FDaBultz%2Fpz-battlesnake.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FDaBultz%2Fpz-battlesnake?ref=badge_large)

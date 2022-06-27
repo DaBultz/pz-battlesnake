@@ -225,6 +225,11 @@ func (gameState *GameState) printMap(boardState *rules.BoardState, useColor bool
 
 	// Add all snakes to the buffer
 	for _, s := range boardState.Snakes {
+		// FIXES: https://github.com/DaBultz/pz-battlesnake/issues/10
+		if s.EliminatedCause == rules.NotEliminated {
+			continue
+		}
+
 		red, green, blue := parseSnakeColor(gameState.snakeStates[s.ID].Color)
 		for _, b := range s.Body {
 			if b.X >= 0 && b.X < boardState.Width && b.Y >= 0 && b.Y < boardState.Height {
@@ -235,6 +240,7 @@ func (gameState *GameState) printMap(boardState *rules.BoardState, useColor bool
 				}
 			}
 		}
+
 		if useColor {
 			o.WriteString(fmt.Sprintf("%v "+commands.TERM_FG_RGB+commands.TERM_BG_WHITE+"■■■"+commands.TERM_RESET+": %v\n", gameState.snakeStates[s.ID].Name, red, green, blue, s))
 		} else {

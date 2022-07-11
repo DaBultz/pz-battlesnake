@@ -24,7 +24,5 @@ def env(
 
     # Convert from MARL to AEC API
     env = parallel_to_aec(env)
-    # Provides a wide vareity of helpful error checks
-    env = OrderEnforcingWrapper(env)
 
     return env

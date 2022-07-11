@@ -11,4 +11,8 @@ run:
 	poetry run python ./pz_battlesnake/main.py
 
 build-docs:
-	@sphinx-build -b dirhtml -v docs/source build
+	@poetry run sphinx-build -b dirhtml -v docs/source build
+
+serve-docs:
+	@rm -rf build/
+	@poetry run sphinx-autobuild docs/source build/ -b dirhtml

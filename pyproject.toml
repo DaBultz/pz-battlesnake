@@ -6,7 +6,7 @@ authors = ["Bultz <27208227+DaBultz@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"
-gym = "<0.24.0"
+gym = "^0.24.0"
 PettingZoo = "^1.19.0"
 
 [tool.poetry.dev-dependencies]

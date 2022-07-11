@@ -45,7 +45,7 @@ setup(
     url="https://github.com/DaBultz/pz-battlesnake",
     py_modules=["pz_battlesnake"],
     packages=["pz_battlesnake", "pz_battlesnake.env", "pz_battlesnake.spaces"],
-    python_requires=">=3.7, <3.11",
+    python_requires=">=3.7, <=3.11",
     install_requires=["PettingZoo>=1.18"],
     ext_modules=[
         Extension(

@@ -172,3 +172,6 @@ bin/
 
 # build files
 **/build/*
+
+# test.py file
+test.py

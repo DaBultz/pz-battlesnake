@@ -1,19 +1,19 @@
 ---
-title: Standard
+title: Wrapped Chaos
 ---
 
-# Standard
+# Wrapped Chaos
 
-## Environment Creation
+## Enviorment Creation
 
 ```{note}
 This will create an enviorment where all agents take a random action.
 ```
 
 ```python
-from pz_battlesnake.env import standard_v0
+from pz_battlesnake.env import wrapped_chaos_v0
 
-env = standard_v0.env()
+env = wrapped_chaos_v0.env()
 
 env.reset()
 for agent in env.agent_iter():
@@ -21,6 +21,7 @@ for agent in env.agent_iter():
     action = env.action_space(agent).sample() if not done else None
     env.step(action)
 ```
+
 
 ## Parameters
 
@@ -44,6 +45,7 @@ The Action space consists of a Move, which has 4 diffrent strings as options:
 - `right`
 
 See more: [Action Spaces](../api/spaces.md)
+
 
 ## Rewards
 

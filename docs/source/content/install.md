@@ -12,10 +12,6 @@ Befoert you start, you need ensure that you have the following packages installe
 
 ## Installation
 
-### PyPi Install
-
-**WILL COME AT A LATER DATE**
-
 ### Manual Install
 
 ### Step 1: Clone the repo
@@ -34,11 +30,11 @@ cd pz-battlesnake
 
 ### Step 3: Install Libary
 
-You can not install the package globally (will be useable in all projects)
-```
+You can install the library globally, by running:
+```sh
 python setup.py install --user
 ```
 
 ### Step 4: Done
 
-You have now successfully installed the package, you can now pick an enviorment to play with.
+The library is installed in your global, and you can start using it. See [Getting Started](./getting_started.md) for more information.

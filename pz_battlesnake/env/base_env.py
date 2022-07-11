@@ -12,6 +12,7 @@ from pz_battlesnake.wrapper import env_done, env_render, env_reset, env_setup, e
 
 
 def make_env(**kwargs):
+    """ """
     env = BaseEnv(**kwargs)
 
     # Set the metadata enviorment name
@@ -30,10 +31,18 @@ def make_env(**kwargs):
 class BaseEnv(ParallelEnv):
     """
     Implements a BaseEnv for the Battlesnake environment, in which all environments based on
+
+    Args:
+        width (int): The width of the environment. Default is 11
+        height (int): The height of the environment. Default is 11
+        num_agents (int): The number of agents in the environment. Default is 4
+        colors (List[str]): The colors of the agents. Default is :py:data:`DEFAULT_COLORS`
+        game_map (str): The game map to use. Default is "standard"
+        game_type (str): The game type to use. Default is "standard"
     """
 
     metadata = {
-        "render_modes": ["ascii", "color"],
+        "render_modes": ["human", "ascii", "color"],
     }
 
     def __init__(
@@ -61,17 +70,12 @@ class BaseEnv(ParallelEnv):
             names=self.possible_agents,
         )
 
-        self.options = {
-            "width": width,
-            "height": height,
-            "map": "standard",
-            "game_type": "standard",
-            "names": self.possible_agents,
-            "colors": colors,
-        }
-
     @functools.lru_cache(maxsize=0)
     def observation_space(self, agent=None):
+        """
+        Todo:
+            * Add Documentation for observation_space
+        """
         # Check if agent is provided
         assert agent, "Agent must be provided"
 
@@ -84,6 +88,11 @@ class BaseEnv(ParallelEnv):
 
     @functools.lru_cache(maxsize=0)
     def action_space(self, agent=None):
+        """
+
+        Todo:
+            * Add Documentation for action_space
+        """
         # Check if agent is provided
         assert agent, "Agent must be provided"
 
@@ -101,24 +110,29 @@ class BaseEnv(ParallelEnv):
         up a graphical window, or open up some other display that a human can see and understand.
 
         Args:
-            mode: The mode to render the environment in. Can be "ascii" or "color"
+            mode (str): The mode to render the environment in. Can be ``ascii`` or ``color``
         """
-        if mode == "ascii" or mode == "color":
+        if mode == "ascii" or mode == "color" or mode == "human":
             env_render(True if mode == "color" else False)
         else:
             assert False, "Valid render modes are 'ascii' and 'color'"
 
-    def reset(self, seed=None):
+    def reset(self, seed=None, options=None):
         """
         Reset needs to initialize the `agents` attribute and must set up the
         environment so that render(), and step() can be called without issues.
 
         Returns the observations for each agent
+
+        Todo:
+            * Add Example of return
         """
         self.agents = self.possible_agents[:]
 
         if seed:
-            self.options["seed"] = seed
+            self._options.seed = seed
+        else:
+            self._options.seed = None
 
         return env_reset(self._options.options)
 
@@ -130,6 +144,9 @@ class BaseEnv(ParallelEnv):
             - dones
             - infos
         dicts where each dict looks like {agent_0: item_1, agent_1: item_2}
+
+        Todo:
+            * Add Example of return
         """
         if not action:
             self.agents = []

@@ -88,6 +88,13 @@ All dependencies are installed into the virtualenv
 
 The project should now be installed locally and be ready to use.
 
+## How to build docs 
+
+The builds support a live reloading of the docs, run the following command:
+```
+make serve-docs
+```
+
 ## How to contact
 
 if there's any questions, you can always get in contact with me through these channels:

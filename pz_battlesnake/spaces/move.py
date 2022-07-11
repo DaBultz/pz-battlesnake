@@ -1,7 +1,5 @@
 from typing import List
-
 from gym.spaces.space import Space
-
 import random
 
 
@@ -19,8 +17,8 @@ class Move(Space[str]):
     possible_moves: List[str] = ["up", "down", "left", "right"]
 
     def __init__(self):
-        super().__init__()
         self.moves: List[str] = self.possible_moves
+        super().__init__()
 
     def sample(self) -> str:
         """
@@ -45,3 +43,10 @@ class Move(Space[str]):
             bool: True if the input is one of the 4 possible moves, otherwise False.
         """
         return x in self.moves
+
+    def __repr__(self) -> str:
+        """Gives a string representation of this space."""
+        return "Move()"
+
+    def __eq__(self, other) -> bool:
+        return isinstance(other, Move)

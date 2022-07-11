@@ -13,11 +13,8 @@
 import os
 import sys
 
-from pz_battlesnake.constants import DEFAULT_COLORS
-
 sys.path.insert(0, os.path.abspath("../.."))
 # sys.path.insert(0, os.path.abspath("."))
-print(sys.path)
 
 # -- Project information -----------------------------------------------------
 

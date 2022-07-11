@@ -176,6 +176,18 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "livereload"
+version = "2.6.3"
+description = "Python LiveReload is an awesome tool for web developers"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+tornado = {version = "*", markers = "python_version > \"2.7\""}
+
+[[package]]
 name = "markdown-it-py"
 version = "2.1.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
@@ -375,6 +387,14 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
 
 [[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "snowballstemmer"
 version = "2.2.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
@@ -420,6 +440,22 @@ sphinxcontrib-serializinghtml = ">=1.1.5"
 docs = ["sphinxcontrib-websupport"]
 lint = ["flake8 (>=3.5.0)", "isort", "mypy (>=0.950)", "docutils-stubs", "types-typed-ast", "types-requests"]
 test = ["pytest (>=4.6)", "html5lib", "cython", "typed-ast"]
+
+[[package]]
+name = "sphinx-autobuild"
+version = "2021.3.14"
+description = "Rebuild Sphinx documentation on changes, with live-reload in the browser."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+colorama = "*"
+livereload = "*"
+sphinx = "*"
+
+[package.extras]
+test = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "sphinx-basic-ng"
@@ -515,6 +551,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "tornado"
+version = "6.2"
+description = "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed."
+category = "dev"
+optional = false
+python-versions = ">= 3.7"
+
+[[package]]
 name = "typing-extensions"
 version = "4.2.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -538,7 +582,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "06117fc5e85916eef7344091e486800d7eb5fe2ad2a9a32249acd4a546cd388a"
+content-hash = "26d9a9f8dd953da8ca93706b694fb913238e118bf002b1e48f6ff3b0a9b336c2"
 
 [metadata.files]
 alabaster = [
@@ -621,6 +665,7 @@ jinja2 = [
     {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},
     {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
 ]
+livereload = []
 markdown-it-py = [
     {file = "markdown-it-py-2.1.0.tar.gz", hash = "sha256:cf7e59fed14b5ae17c0006eff14a2d9a00ed5f3a846148153899a0224e2c07da"},
     {file = "markdown_it_py-2.1.0-py3-none-any.whl", hash = "sha256:93de681e5c021a432c63147656fe21790bc01231e0cd2da73626f1aa3ac0fe27"},
@@ -771,6 +816,10 @@ requests = [
     {file = "requests-2.28.0-py3-none-any.whl", hash = "sha256:bc7861137fbce630f17b03d3ad02ad0bf978c844f3536d0edda6499dafce2b6f"},
     {file = "requests-2.28.0.tar.gz", hash = "sha256:d568723a7ebd25875d8d1eaf5dfa068cd2fc8194b2e483d7b1f7c81918dbec6b"},
 ]
+six = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
 snowballstemmer = [
     {file = "snowballstemmer-2.2.0-py2.py3-none-any.whl", hash = "sha256:c8e1716e83cc398ae16824e5572ae04e0d9fc2c6b985fb0f900f5f0c96ecba1a"},
     {file = "snowballstemmer-2.2.0.tar.gz", hash = "sha256:09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"},
@@ -783,6 +832,7 @@ sphinx = [
     {file = "Sphinx-5.0.2-py3-none-any.whl", hash = "sha256:d3e57663eed1d7c5c50895d191fdeda0b54ded6f44d5621b50709466c338d1e8"},
     {file = "Sphinx-5.0.2.tar.gz", hash = "sha256:b18e978ea7565720f26019c702cd85c84376e948370f1cd43d60265010e1c7b0"},
 ]
+sphinx-autobuild = []
 sphinx-basic-ng = [
     {file = "sphinx_basic_ng-0.0.1a11-py3-none-any.whl", hash = "sha256:9aecb5345816998789ef76658a83e3c0a12aafa14b17d40e28cd4aaeb94d1517"},
     {file = "sphinx_basic_ng-0.0.1a11.tar.gz", hash = "sha256:bf9a8fda0379c7d2ab51c9543f2b18e014b77fb295b49d64f3c1a910c863b34f"},
@@ -815,6 +865,7 @@ tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
 ]
+tornado = []
 typing-extensions = [
     {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
     {file = "typing_extensions-4.2.0.tar.gz", hash = "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"},

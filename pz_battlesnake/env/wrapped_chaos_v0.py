@@ -7,21 +7,21 @@ from pz_battlesnake.env.base_env import BaseEnv
 
 
 def env(
-    width: int = 11,
-    height: int = 11,
+    width: int = 19,
+    height: int = 19,
     colors: List[str] = DEFAULT_COLORS,
 ):
     env = BaseEnv(
         wdith=width,
         height=height,
         game_map="standard",
-        game_type="standard",
-        num_agents=4,
+        game_type="wrapped",
+        num_agents=8,
         colors=colors,
     )
 
     # Set the metadata enviorment name
-    env.metadata["name"] = "battlesnake-standard_v0"
+    env.metadata["name"] = "battlesnake-duels_v0"
 
     # Convert from MARL to AEC API
     env = parallel_to_aec(env)

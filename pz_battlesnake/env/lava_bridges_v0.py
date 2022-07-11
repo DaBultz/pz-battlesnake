@@ -14,14 +14,14 @@ def env(
     env = BaseEnv(
         wdith=width,
         height=height,
-        game_map="standard",
+        game_map="hz_rivers_bridges",
         game_type="standard",
         num_agents=4,
         colors=colors,
     )
 
     # Set the metadata enviorment name
-    env.metadata["name"] = "battlesnake-standard_v0"
+    env.metadata["name"] = "battlesnake-lava-bridges_v0"
 
     # Convert from MARL to AEC API
     env = parallel_to_aec(env)

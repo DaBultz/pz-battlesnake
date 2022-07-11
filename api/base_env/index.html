@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="Getting Started" href="../getting_started/" /><link rel="prev" title="PettingZoo BattleSnake Documentation" href="../../" />
-        <link rel="canonical" href="https://dabultz.github.io/pz-battlesnake/content/install.html" />
+<link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="Action Spaces" href="../spaces/" /><link rel="prev" title="Wrapped Chaos" href="../../environments/wrapped_chaos/" />
+        <link rel="canonical" href="https://dabultz.github.io/pz-battlesnake/api/base_env.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Installation - PettingZoo BattleSnake Documentation</title>
+        <title>BaseEnv - PettingZoo BattleSnake Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -156,10 +156,10 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../custom_enviorment/">Custom Enviorment</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../content/install/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/getting_started/">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../content/custom_enviorment/">Custom Enviorment</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Environments</span></p>
 <ul>
@@ -171,10 +171,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../environments/wrapped_chaos/">Wrapped Chaos</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../api/base_env/">BaseEnv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/spaces/">Action Spaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api/constants/">Constants</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">BaseEnv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spaces/">Action Spaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constants/">Constants</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
@@ -212,46 +212,75 @@
           </label>
         </div>
         <article role="main">
-          <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
-<p>Befoert you start, you need ensure that you have the following packages installed:</p>
-<ul class="simple">
-<li><p>Go 1.18 (<code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">version</span></code>)</p></li>
-<li><p>Python &gt;= 3.10 (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code>)</p></li>
+          <section id="baseenv">
+<h1>BaseEnv<a class="headerlink" href="#baseenv" title="Permalink to this heading">#</a></h1>
+<section id="make-env">
+<h2>Make Env<a class="headerlink" href="#make-env" title="Permalink to this heading">#</a></h2>
+<!-- ```{eval-rst}
+.. autofunction:: pz_battlesnake.env.base_env.make_env
+``` -->
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Add API Documentation for make_env() function.</p>
+</div>
+</section>
+<section id="baseenv-class">
+<h2>BaseEnv Class<a class="headerlink" href="#baseenv-class" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="environment-options">
+<h2>Environment Options<a class="headerlink" href="#environment-options" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pz_battlesnake.types.battlesnake_options.BattlesnakeOptions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pz_battlesnake.types.battlesnake_options.</span></span><span class="sig-name descname"><span class="pre">BattlesnakeOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'standard'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'solo'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['#00FF00',</span> <span class="pre">'#0000FF',</span> <span class="pre">'#FF00FF',</span> <span class="pre">'#FFFF00']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pz_battlesnake/types/battlesnake_options/#BattlesnakeOptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pz_battlesnake.types.battlesnake_options.BattlesnakeOptions" title="Permalink to this definition">#</a></dt>
+<dd><p>BattlesnakeOptions represents the options for a battlesnake game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – width of the board. Defaults to 11.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – height of the board. Defaults to 11.</p></li>
+<li><p><strong>map</strong> (<em>str</em><em>, </em><em>optional</em>) – name of the map. Defaults to “standard”.</p></li>
+<li><p><strong>game_type</strong> (<em>str</em><em>, </em><em>optional</em>) – game type. Defaults to “solo”.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – the seed to use. Defaults to None.</p></li>
+<li><p><strong>names</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – list over all names. Defaults to None.</p></li>
+<li><p><strong>colors</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – list of all colors. Defaults to DEFAULT_COLORS.</p></li>
 </ul>
-</section>
-<section id="id1">
-<h2>Installation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<section id="manual-install">
-<h3>Manual Install<a class="headerlink" href="#manual-install" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="step-1-clone-the-repo">
-<h3>Step 1: Clone the repo<a class="headerlink" href="#step-1-clone-the-repo" title="Permalink to this heading">#</a></h3>
-<p>You can clone the repo down using git, or download the zip file from <a class="reference external" href="https://github.com/DaBultz/pz-battlesnake">DaBultz/pz-battlesnake</a></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:DaBultz/pz-battlesnake.git
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pz_battlesnake.types.battlesnake_options</span> <span class="kn">import</span> <span class="n">BattlesnakeOptions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">options</span> <span class="o">=</span> <span class="n">BattlesnakeOptions</span><span class="p">(</span><span class="n">game_map</span><span class="o">=</span><span class="s2">&quot;standard&quot;</span><span class="p">,</span> <span class="n">game_type</span><span class="o">=</span><span class="s2">&quot;solo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+<span class="go">BattlesnakeOptions(width=11, height=11, game_map=standard, game_type=solo, seed=None, names=None, colors=[&#39;#00FF00&#39;, &#39;#0000FF&#39;, &#39;#FF00FF&#39;, &#39;#FFFF00&#39;])</span>
 </pre></div>
 </div>
-</section>
-<section id="step-2-navigate-into-cloned-repo">
-<h3>Step 2: Navigate into cloned repo<a class="headerlink" href="#step-2-navigate-into-cloned-repo" title="Permalink to this heading">#</a></h3>
-<p>Once downloaded you can navigate into the folder, by running:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pz-battlesnake
+<dl class="py property">
+<dt class="sig sig-object py" id="pz_battlesnake.types.battlesnake_options.BattlesnakeOptions.options">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pz_battlesnake.types.battlesnake_options.BattlesnakeOptions.options" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns Battlesnake Options as a dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Dict[str, Any]</strong> – returns a dictionary of the options</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pz_battlesnake.types.battlesnake_options</span> <span class="kn">import</span> <span class="n">BattlesnakeOptions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">options</span> <span class="o">=</span> <span class="n">BattlesnakeOptions</span><span class="p">(</span><span class="n">game_map</span><span class="o">=</span><span class="s2">&quot;standard&quot;</span><span class="p">,</span> <span class="n">game_type</span><span class="o">=</span><span class="s2">&quot;solo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">    &#39;width&#39;: 11,</span>
+<span class="go">    &#39;height&#39;: 11,</span>
+<span class="go">    &#39;map&#39;: &#39;standard&#39;,</span>
+<span class="go">    &#39;game_type&#39;: &#39;solo&#39;,</span>
+<span class="go">    &#39;seed&#39;: None,</span>
+<span class="go">    &#39;names&#39;: None,</span>
+<span class="go">    &#39;colors&#39;: [&#39;#00FF00&#39;, &#39;#0000FF&#39;, &#39;#FF00FF&#39;, &#39;#FFFF00&#39;]</span>
+<span class="go">}</span>
 </pre></div>
 </div>
-</section>
-<section id="step-3-install-libary">
-<h3>Step 3: Install Libary<a class="headerlink" href="#step-3-install-libary" title="Permalink to this heading">#</a></h3>
-<p>You can install the library globally, by running:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python setup.py install --user
-</pre></div>
-</div>
-</section>
-<section id="step-4-done">
-<h3>Step 4: Done<a class="headerlink" href="#step-4-done" title="Permalink to this heading">#</a></h3>
-<p>The library is installed in your global, and you can start using it. See <a class="reference internal" href="../getting_started/"><span class="doc std std-doc">Getting Started</span></a> for more information.</p>
-</section>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -260,23 +289,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../getting_started/">
+          <a class="next-page" href="../spaces/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Getting Started</div>
+                <div class="title">Action Spaces</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../">
+          <a class="prev-page" href="../../environments/wrapped_chaos/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">Wrapped Chaos</div>
                 
               </div>
             </a>
@@ -312,16 +341,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#id1">Installation</a><ul>
-<li><a class="reference internal" href="#manual-install">Manual Install</a></li>
-<li><a class="reference internal" href="#step-1-clone-the-repo">Step 1: Clone the repo</a></li>
-<li><a class="reference internal" href="#step-2-navigate-into-cloned-repo">Step 2: Navigate into cloned repo</a></li>
-<li><a class="reference internal" href="#step-3-install-libary">Step 3: Install Libary</a></li>
-<li><a class="reference internal" href="#step-4-done">Step 4: Done</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">BaseEnv</a><ul>
+<li><a class="reference internal" href="#make-env">Make Env</a></li>
+<li><a class="reference internal" href="#baseenv-class">BaseEnv Class</a></li>
+<li><a class="reference internal" href="#environment-options">Environment Options</a></li>
 </ul>
 </li>
 </ul>

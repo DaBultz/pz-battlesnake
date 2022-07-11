@@ -1,19 +1,19 @@
 ---
-title: Maze (Summer League 2022)
+title: Duels
 ---
 
-# Maze (Summer League 2022)
+# Duels
 
-## Environment Creation
+## Enviorment Creation
 
 ```{note}
 This will create an enviorment where all agents take a random action.
 ```
 
 ```python
-from pz_battlesnake.env import maze_v0
+from pz_battlesnake.env import duels_v0
 
-env = maze_v0.env()
+env = duels_v0.env()
 
 env.reset()
 for agent in env.agent_iter():
@@ -23,12 +23,15 @@ for agent in env.agent_iter():
 ```
 
 
+
+
 ## Parameters
 
-| Parameter  | Type      | Description      | Default                                      | Note                               |
-| ---------- | --------- | ---------------- | -------------------------------------------- | ---------------------------------- |
-| num_agents | int       | number of agents | 4                                            |                                    |
-| colors     | List[str] | list of colors   | ['#00FF00', '#0000FF', '#FF00FF', '#FFFF00'] | Colors from this list will be used |
+| Parameter | Type      | Description         | Default                                      | Note                               |
+| --------- | --------- | ------------------- | -------------------------------------------- | ---------------------------------- |
+| width     | int       | width of the board  | 11                                           |                                    |
+| height    | int       | height of the board | 11                                           |                                    |
+| colors    | List[str] | list of colors      | ['#00FF00', '#0000FF', '#FF00FF', '#FFFF00'] | Colors from this list will be used |
 
 ## Observation Space
 
@@ -44,6 +47,7 @@ The Action space consists of a Move, which has 4 diffrent strings as options:
 - `right`
 
 See more: [Action Spaces](../api/spaces.md)
+
 
 ## Rewards
 

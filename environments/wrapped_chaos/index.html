@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="Standard" href="../standard/" /><link rel="prev" title="Custom Enviorment" href="../../content/custom_enviorment/" />
-        <link rel="canonical" href="https://dabultz.github.io/pz-battlesnake/environments/solo.html" />
+<link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="BaseEnv" href="../../api/base_env/" /><link rel="prev" title="Lava Bridges" href="../lava_bridges/" />
+        <link rel="canonical" href="https://dabultz.github.io/pz-battlesnake/environments/wrapped_chaos.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Solo - PettingZoo BattleSnake Documentation</title>
+        <title>Wrapped Chaos - PettingZoo BattleSnake Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -163,12 +163,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Environments</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Solo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solo/">Solo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../standard/">Standard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../duels/">Duels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../maze/">Maze (Summer League 2022)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lava_bridges/">Lava Bridges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../wrapped_chaos/">Wrapped Chaos</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Wrapped Chaos</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API</span></p>
 <ul>
@@ -212,17 +212,17 @@
           </label>
         </div>
         <article role="main">
-          <section id="solo">
-<h1>Solo<a class="headerlink" href="#solo" title="Permalink to this heading">#</a></h1>
-<section id="environment-creation">
-<h2>Environment Creation<a class="headerlink" href="#environment-creation" title="Permalink to this heading">#</a></h2>
+          <section id="wrapped-chaos">
+<h1>Wrapped Chaos<a class="headerlink" href="#wrapped-chaos" title="Permalink to this heading">#</a></h1>
+<section id="enviorment-creation">
+<h2>Enviorment Creation<a class="headerlink" href="#enviorment-creation" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This will create an enviorment where all agents take a random action.</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pz_battlesnake.env</span> <span class="kn">import</span> <span class="n">solo_v0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pz_battlesnake.env</span> <span class="kn">import</span> <span class="n">wrapped_chaos_v0</span>
 
-<span class="n">env</span> <span class="o">=</span> <span class="n">solo_v0</span><span class="o">.</span><span class="n">env</span><span class="p">()</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">wrapped_chaos_v0</span><span class="o">.</span><span class="n">env</span><span class="p">()</span>
 
 <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">agent_iter</span><span class="p">():</span>
@@ -312,23 +312,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../standard/">
+          <a class="next-page" href="../../api/base_env/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Standard</div>
+                <div class="title">BaseEnv</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../content/custom_enviorment/">
+          <a class="prev-page" href="../lava_bridges/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Custom Enviorment</div>
+                <div class="title">Lava Bridges</div>
                 
               </div>
             </a>
@@ -364,8 +364,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Solo</a><ul>
-<li><a class="reference internal" href="#environment-creation">Environment Creation</a></li>
+<li><a class="reference internal" href="#">Wrapped Chaos</a><ul>
+<li><a class="reference internal" href="#enviorment-creation">Enviorment Creation</a></li>
 <li><a class="reference internal" href="#parameters">Parameters</a></li>
 <li><a class="reference internal" href="#observation-space">Observation Space</a></li>
 <li><a class="reference internal" href="#action-space">Action Space</a></li>

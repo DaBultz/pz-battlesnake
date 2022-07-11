@@ -44,7 +44,7 @@ Once the enviorment is reset, we can iterate over the agents in the enviorment b
 for agent in env.agents:
     # Get Last Observation, Reward, Done, Info
     observation, reward, done, info = env.last()
-    # Pick an action, if agenmt is done, pick None
+    # Pick a random action, if agent is done pick None
     action = env.action_space(agent).sample() if not done else None
     # Step through the enviorment
     env.step(action)
@@ -68,7 +68,7 @@ for _ in range(10):
         for agent in env.agents:
             # Get Last Observation, Reward, Done, Info
             observation, reward, done, info = env.last()
-            # Pick an action, if agenmt is done, pick None
+            # Pick a random action, if agent is done pick None
             action = env.action_space(agent).sample() if not done else None
             # Step through the enviorment
             env.step(action)

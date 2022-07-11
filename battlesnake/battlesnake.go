@@ -358,9 +358,23 @@ func (gameState *GameState) getRewardForSnake(snakeState SnakeState) int {
 	return 1
 }
 
+func (gameState *GameState) isSnakeDone(snakeState SnakeState) bool {
+	// Find Snake index
+	var youSnake rules.Snake
+
+	for _, snake := range gameState.boardState.Snakes {
+		if snake.ID == snakeState.ID {
+			youSnake = snake
+			break
+		}
+	}
+
+	return youSnake.EliminatedCause != rules.NotEliminated
+}
+
 func (gameState *GameState) getResponseForSnake(snake SnakeState) StepRes {
 	return StepRes{
-		Done:        gameState.gameOver,
+		Done:        gameState.isSnakeDone(snake),
 		Reward:      gameState.getRewardForSnake(snake),
 		Info:        nil,
 		Observation: gameState.getRequestBodyForSnake(gameState.boardState, snake),

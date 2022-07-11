@@ -1,19 +1,19 @@
 ---
-title: Maze (Summer League 2022)
+title: Lava Bridges
 ---
 
-# Maze (Summer League 2022)
+# Lava Bridges
 
-## Environment Creation
+## Enviorment Creation
 
 ```{note}
 This will create an enviorment where all agents take a random action.
 ```
 
 ```python
-from pz_battlesnake.env import maze_v0
+from pz_battlesnake.env import lava_bridges_v0
 
-env = maze_v0.env()
+env = lava_bridges_v0.env()
 
 env.reset()
 for agent in env.agent_iter():
@@ -25,15 +25,14 @@ for agent in env.agent_iter():
 
 ## Parameters
 
-| Parameter  | Type      | Description      | Default                                      | Note                               |
-| ---------- | --------- | ---------------- | -------------------------------------------- | ---------------------------------- |
-| num_agents | int       | number of agents | 4                                            |                                    |
-| colors     | List[str] | list of colors   | ['#00FF00', '#0000FF', '#FF00FF', '#FFFF00'] | Colors from this list will be used |
+| Parameter | Type      | Description        | Default                                      | Note                               |
+| --------- | --------- | ------------------ | -------------------------------------------- | ---------------------------------- |
+| num_agent | int       | width of the board | 4                                            |                                    |
+| colors    | List[str] | list of colors     | ['#00FF00', '#0000FF', '#FF00FF', '#FFFF00'] | Colors from this list will be used |
 
 ## Observation Space
 
 The observation space matches the API request from battlesnake, you can find this in their official [API Docs](https://docs.battlesnake.com/references/api#post-move).
-
 
 ## Action Space
 

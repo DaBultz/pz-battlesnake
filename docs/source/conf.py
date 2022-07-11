@@ -10,10 +10,14 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
 
+from pz_battlesnake.constants import DEFAULT_COLORS
+
+sys.path.insert(0, os.path.abspath("../.."))
+# sys.path.insert(0, os.path.abspath("."))
+print(sys.path)
 
 # -- Project information -----------------------------------------------------
 
@@ -32,6 +36,9 @@ release = "0.1.0"
 # ones.
 extensions = [
     "sphinx.ext.napoleon",
+    "sphinx.ext.doctest",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.todo",
     "sphinx.ext.autodoc",
     "sphinx.ext.githubpages",
     "myst_parser",
@@ -45,6 +52,21 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Napoleon settings
+napoleon_use_param = True
+napoleon_numpy_docstring = False  # Google Docstring forced
+napoleon_use_ivar = True
+# See https://github.com/sphinx-doc/sphinx/issues/9119
+napoleon_custom_sections = [("Returns", "params_style")]
+
+todo_include_todos = True
+
+# MyST parser settings
+myst_enable_extensions = ["substitution"]
+
+myst_substitutions = {
+    "DEFAULT_COLORS": "test",
+}
 
 # -- Options for HTML output -------------------------------------------------
 

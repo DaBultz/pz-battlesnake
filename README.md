@@ -11,13 +11,13 @@ You are able to contribute to this project, read the [contributing guide](CONTRI
 - [X] Solo
 - [X] Standard
 - [X] Duels
-- [ ] Wrapped
-- [ ] Constrictor
+- [X] Wrapped
 - [X] Arcade Maze (Used in Summer 2022 League)
+- [X] Easy to add new environments
 
 ## Plans:
 
-The project will be expanded in stages, 
+To see the future plans/features, please see the following issue: [Future Plans (#12)](https://github.com/DaBultz/pz-battlesnake/issues/12)
 
 ### Next Stage
 
@@ -33,17 +33,11 @@ The documentation is really lacking, in this stage there will be a focus on the 
 - [ ] Documentation for the environments
 - [ ] General API Documentation
 
-### Future Stages
-
-- Vectorization of the environments (allow multiple games run at the same time)
-- Tests, it would allow us to keeo a certain quality
-
 ## Project Organization
 
 ```
 ├── battlesnake         <-- Go Library Code (compiled into a C library)
 ├── docs                <-- Documentation
-├── example             <-- Example of how to use the enviorment
 └── pz_battlesnake      <-- PettingZoo enviorment
 ```
 

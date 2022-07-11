@@ -74,11 +74,11 @@ unicode_backport = ["unicodedata2"]
 
 [[package]]
 name = "click"
-version = "8.1.3"
+version = "8.0.4"
 description = "Composable command line interface toolkit"
 category = "dev"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.6"
 
 [package.dependencies]
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
@@ -123,36 +123,27 @@ sphinx-basic-ng = "*"
 
 [[package]]
 name = "gym"
-version = "0.24.1"
-description = "Gym: A universal API for reinforcement learning environments"
+version = "0.21.0"
+description = "Gym: A universal API for reinforcement learning environments."
 category = "main"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
 cloudpickle = ">=1.2.0"
-gym_notices = ">=0.0.4"
 numpy = ">=1.18.0"
 
 [package.extras]
 accept-rom-license = ["autorom[accept-rom-license] (>=0.4.2,<0.5.0)"]
-all = ["ale-py (>=0.7.5,<0.8.0)", "box2d-py (==2.3.5)", "mujoco_py (>=2.1,<2.2)", "imageio (>=2.14.1)", "mock", "pygame (==2.1.0)", "mujoco (==2.2.0)", "opencv-python (>=3.0)", "lz4 (>=3.1.0)", "matplotlib (>=3.0)", "pytest"]
-atari = ["ale-py (>=0.7.5,<0.8.0)"]
-box2d = ["box2d-py (==2.3.5)", "pygame (==2.1.0)"]
-classic_control = ["pygame (==2.1.0)"]
-mujoco = ["mujoco (==2.2.0)", "imageio (>=2.14.1)"]
-mujoco_py = ["mujoco_py (>=2.1,<2.2)"]
-other = ["lz4 (>=3.1.0)", "opencv-python (>=3.0)", "matplotlib (>=3.0)"]
-testing = ["box2d-py (==2.3.5)", "mujoco_py (>=2.1,<2.2)", "imageio (>=2.14.1)", "pygame (==2.1.0)", "mujoco (==2.2.0)", "opencv-python (>=3.0)", "lz4 (>=3.1.0)", "matplotlib (>=3.0)", "pytest", "mock"]
-toy_text = ["pygame (==2.1.0)"]
-
-[[package]]
-name = "gym-notices"
-version = "0.0.7"
-description = "Notices for gym"
-category = "main"
-optional = false
-python-versions = "*"
+all = ["mujoco_py (>=1.50,<2.0)", "lz4 (>=3.1.0)", "opencv-python (>=3)", "ale-py (>=0.7.1,<0.8.0)", "pyglet (>=1.4.0)", "scipy (>=1.4.1)", "box2d-py (==2.3.5)", "pyglet (>=1.4.0)", "ale-py (>=0.7.1,<0.8.0)", "lz4 (>=3.1.0)", "opencv-python (>=3)", "pyglet (>=1.4.0)", "box2d-py (==2.3.5)", "pyglet (>=1.4.0)", "scipy (>=1.4.1)", "mujoco_py (>=1.50,<2.0)"]
+atari = ["ale-py (>=0.7.1,<0.8.0)"]
+box2d = ["box2d-py (==2.3.5)", "pyglet (>=1.4.0)"]
+classic_control = ["pyglet (>=1.4.0)"]
+mujoco = ["mujoco_py (>=1.50,<2.0)"]
+nomujoco = ["lz4 (>=3.1.0)", "opencv-python (>=3)", "ale-py (>=0.7.1,<0.8.0)", "pyglet (>=1.4.0)", "scipy (>=1.4.1)", "box2d-py (==2.3.5)", "pyglet (>=1.4.0)"]
+other = ["lz4 (>=3.1.0)", "opencv-python (>=3)"]
+robotics = ["mujoco_py (>=1.50,<2.0)"]
+toy_text = ["scipy (>=1.4.1)"]
 
 [[package]]
 name = "idna"
@@ -297,7 +288,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [[package]]
 name = "pettingzoo"
-version = "1.18.1"
+version = "1.19.0"
 description = "Gym for multi-agent reinforcement learning"
 category = "main"
 optional = false
@@ -308,11 +299,11 @@ gym = ">=0.21.0"
 numpy = ">=1.18.0"
 
 [package.extras]
-all = ["multi-agent-ale-py (==0.1.11)", "pygame (==2.1.0)", "chess (==1.7.0)", "rlcard (==1.0.4)", "hanabi-learning-environment (==0.0.1)", "pymunk (==6.2.0)", "magent (==0.2.2)", "pyglet (>=1.4.0)", "box2d-py (==2.3.5)", "scipy (>=1.4.1)", "pillow (>=8.0.1)"]
+all = ["multi-agent-ale-py (==0.1.11)", "pygame (==2.1.0)", "chess (==1.7.0)", "rlcard (==1.0.4)", "hanabi-learning-environment (==0.0.4)", "pymunk (==6.2.0)", "magent (==0.2.3)", "pyglet (>=1.4.0)", "box2d-py (==2.3.5)", "scipy (>=1.4.1)", "pillow (>=8.0.1)"]
 atari = ["multi-agent-ale-py (==0.1.11)", "pygame (==2.1.0)"]
 butterfly = ["pygame (==2.1.0)", "pymunk (==6.2.0)"]
-classic = ["chess (==1.7.0)", "rlcard (==1.0.4)", "pygame (==2.1.0)", "hanabi-learning-environment (==0.0.1)"]
-magent = ["magent (==0.2.2)"]
+classic = ["chess (==1.7.0)", "rlcard (==1.0.4)", "pygame (==2.1.0)", "hanabi-learning-environment (==0.0.4)"]
+magent = ["magent (==0.2.3)"]
 mpe = ["pyglet (>=1.4.0)"]
 other = ["pillow (>=8.0.1)"]
 sisl = ["pygame (==2.1.0)", "box2d-py (==2.3.5)", "scipy (>=1.4.1)"]
@@ -547,7 +538,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "3b746188affcec7b3b123adcc1e875736a543476f0830e838b2d8ace5cccde63"
+content-hash = "06117fc5e85916eef7344091e486800d7eb5fe2ad2a9a32249acd4a546cd388a"
 
 [metadata.files]
 alabaster = [
@@ -596,8 +587,8 @@ charset-normalizer = [
     {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
 ]
 click = [
-    {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
-    {file = "click-8.1.3.tar.gz", hash = "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"},
+    {file = "click-8.0.4-py3-none-any.whl", hash = "sha256:6a7a62563bbfabfda3a38f3023a1db4a35978c0abd76f6c9605ecd6554d6d9b1"},
+    {file = "click-8.0.4.tar.gz", hash = "sha256:8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"},
 ]
 cloudpickle = [
     {file = "cloudpickle-2.1.0-py3-none-any.whl", hash = "sha256:b5c434f75c34624eedad3a14f2be5ac3b5384774d5b0e3caf905c21479e6c4b1"},
@@ -616,11 +607,7 @@ furo = [
     {file = "furo-2022.6.4.tar.gz", hash = "sha256:bb25b3f275d902441d7b87f42b7d85422c9b2efeac6411a9a5ed380bcbff24dc"},
 ]
 gym = [
-    {file = "gym-0.24.1.tar.gz", hash = "sha256:9b23bbaa96ba0771a16a9f80062edb79b6f176ffdc84f39ea4645b03a8b72291"},
-]
-gym-notices = [
-    {file = "gym-notices-0.0.7.tar.gz", hash = "sha256:254b667412dbe205135213595c963cd830668382ce57b68a0c282a238eeb35b9"},
-    {file = "gym_notices-0.0.7-py3-none-any.whl", hash = "sha256:8da0c511d0b957405054cd1119c59e046013639c1bd55f67f410324f2570f7b3"},
+    {file = "gym-0.21.0.tar.gz", hash = "sha256:0fd1ce165c754b4017e37a617b097c032b8c3feb8a0394ccc8777c7c50dddff3"},
 ]
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
@@ -728,10 +715,7 @@ pathspec = [
     {file = "pathspec-0.9.0-py2.py3-none-any.whl", hash = "sha256:7d15c4ddb0b5c802d161efc417ec1a2558ea2653c2e8ad9c19098201dc1c993a"},
     {file = "pathspec-0.9.0.tar.gz", hash = "sha256:e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"},
 ]
-pettingzoo = [
-    {file = "PettingZoo-1.18.1-py3-none-any.whl", hash = "sha256:25ae45fcfa2c623800e1f81b98ae50f5f5a1af6caabc5946764248de71a0371d"},
-    {file = "PettingZoo-1.18.1.tar.gz", hash = "sha256:7e6a3231dc3fc3801af83fe880f199f570d46a9acdcb990f2a223f121b6e5038"},
-]
+pettingzoo = []
 platformdirs = [
     {file = "platformdirs-2.5.2-py3-none-any.whl", hash = "sha256:027d8e83a2d7de06bbac4e5ef7e023c02b863d7ea5d079477e722bb41ab25788"},
     {file = "platformdirs-2.5.2.tar.gz", hash = "sha256:58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"},

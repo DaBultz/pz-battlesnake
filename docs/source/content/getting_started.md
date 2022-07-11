@@ -78,6 +78,12 @@ for _ in range(10):
 ```
 ## Useful links
 
+- [PettingZoo API Docs](https://www.pettingzoo.ml/api#interacting-with-environments)
+```{warning}
+Some of the things listed on PettingZoo's Guide are not available in pz-battlesnake, as we implement an AEC Enviorment and not an MARL Enviorment. Below is listed what you can't do.
+    - PettingZoo Parrallel API
+    - Raw Enviorments 
+```
 ## Complete Code
 
 ```{note}

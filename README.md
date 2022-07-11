@@ -11,9 +11,9 @@ You are able to contribute to this project, read the [contributing guide](CONTRI
 - [X] Solo
 - [X] Standard
 - [X] Duels
-- [ ] Wrapped
-- [ ] Constrictor
+- [X] Wrapped
 - [X] Arcade Maze (Used in Summer 2022 League)
+- [X] Easy to add new environments
 
 ## Plans:
 
@@ -36,7 +36,9 @@ The documentation is really lacking, in this stage there will be a focus on the 
 ### Future Stages
 
 - Vectorization of the environments (allow multiple games run at the same time)
-- Tests, it would allow us to keeo a certain quality
+- Tests, it would allow us to keep a certain quality
+- [Ray](https://www.ray.io/) Support + Documentation
+- [Support for custom maps](https://blog.battlesnake.com/build-your-own-battlesnake-maps/)
 
 ## Project Organization
 

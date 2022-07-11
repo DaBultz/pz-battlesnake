@@ -80,6 +80,10 @@ for _ in range(10):
 
 ## Complete Code
 
+```{note}
+The code below implements a random agent, which will take a random action each step.
+```
+
 ```python
 # First we need to import the enviorment
 from pz_battlesnake.env import solo_v0

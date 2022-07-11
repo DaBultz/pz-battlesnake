@@ -19,20 +19,6 @@ You are able to contribute to this project, read the [contributing guide](CONTRI
 
 To see the future plans/features, please see the following issue: [Future Plans (#12)](https://github.com/DaBultz/pz-battlesnake/issues/12)
 
-### Next Stage
-
-In the next stage, the are 2 focuses for the project
-
-**Focus 1: Environments**
-
-A base environment will be developed and all environments will inherit from this, there are minor changes between the environments. This would also included updates to the examples, so they are more accurate and up to date.
-
-**Focus 2: Documentation**
-
-The documentation is really lacking, in this stage there will be a focus on the following
-- [ ] Documentation for the environments
-- [ ] General API Documentation
-
 ## Project Organization
 
 ```
